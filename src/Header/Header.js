@@ -5,7 +5,13 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <h1>ISS Tracker</h1>
+                <div>
+                    <a href='/' className='logo'>ISS Tracker</a>
+                </div>
+                <ul className='header-signup'>
+                    <li>Sign-Up</li>
+                    <li>Log In</li>
+                </ul>
             </header>
         );
     }
