@@ -7,8 +7,13 @@ class Home extends Component {
       <div className="home">
         <h1>Where in the World is the ISS?</h1>
         <div>
-          <img src="https://via.placeholder.com/500x500" />
+          <img
+            src="https://via.placeholder.com/500x500"
+            alt="map of where the ISS is"
+          />
         </div>
+        <h2>Moscow, Russia</h2>
+        <button>Refresh</button>
       </div>
     )
   }
