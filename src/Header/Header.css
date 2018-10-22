@@ -1,4 +1,26 @@
 header {
-    color: white;
-    background-color: black;
+  padding: 25px;
+  background-color: #202124;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-size: 38px;
+  font-weight: 800;
+  color: white;
+}
+header ul {
+  display: flex;
+  flex-direction: row;
+}
+header li {
+  font-size: 20px;
+  padding: 15px;
+}
+
+header .header-signup {
+  color: white;
 }
