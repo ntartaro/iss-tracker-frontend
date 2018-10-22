@@ -25,6 +25,20 @@
   text-align: center;
 }
 
+@media (max-width: 990px) {
+  .home h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .home h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
 .home h2 {
   font-size: 2rem;
 }
