@@ -44,6 +44,7 @@
 }
 
 .home button {
+  margin-bottom: 50px;
   margin-top: 1rem;
   background-color: #202124;
   /* border taken from bootstrap class thumbnail */
