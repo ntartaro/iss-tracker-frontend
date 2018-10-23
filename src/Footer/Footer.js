@@ -5,18 +5,30 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <div />
+        <div>
+          <a href="https://www.nasa.gov/mission_pages/station/main/index.html">
+            <img className='nasa-logo' src="/images/nasa.svg" alt="NASA Logo" />
+          </a>
+        </div>
         <div>
           <ul>
             <li>
               <a href="https://github.com/ntartaro">
-                <img src="/images/github_logo.png" />
+                <img
+                  className="git-logo"
+                  src="/images/github_logo.png"
+                  alt="Github Link"
+                />
                 <p>ntartaro</p>
               </a>
             </li>
             <li>
               <a href="https://github.com/ortizlu">
-                <img src="/images/github_logo.png" />
+                <img
+                  className="git-logo"
+                  src="/images/github_logo.png"
+                  alt="Github Link"
+                />
                 <p>ortizlu</p>
               </a>
             </li>
