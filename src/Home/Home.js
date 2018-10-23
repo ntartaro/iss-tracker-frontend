@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './Home.css'
+import React, { Component } from 'react';
+import './Home.css';
 
 class Home extends Component {
   render() {
@@ -15,8 +15,8 @@ class Home extends Component {
         <h2>Moscow, Russia</h2>
         <button>Refresh</button>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
