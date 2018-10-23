@@ -1,61 +1,67 @@
 .signup-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 150px;
 }
 
 .signup-top {
-    text-align: center;
-    padding-top: 15px;
-    width: 550px;
-    border: 1.5px solid #202124;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+  text-align: center;
+  padding-top: 15px;
+  width: 550px;
+  border: 1.5px solid #202124;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .signup-top p {
-    color: #202124;
-    margin-bottom: 15px;
-    font-size: 30px;
+  color: #202124;
+  margin-bottom: 15px;
+  font-size: 30px;
 }
 
 .signup-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 550px;
-    height: 240px;
-    background-color: #202124;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 550px;
+  height: 230px;
+  background-color: #202124;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.signup-main p {
-    margin: 10px;
-    color: white;
+.signup-main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-main label {
+  margin: 10px;
+  color: white;
 }
 
 .signup-main input {
-    margin: 3px;
- width: 250px;
+  margin: 3px;
+  width: 250px;
 }
 
 .signup-button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-button {
-    font-size: 16px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: 1px solid white;
-    background-color: #202124;
-    color: white;
-    height: 40px;
-    width: 150px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: #202124;
+  color: white;
+  height: 40px;
+  width: 150px;
 }

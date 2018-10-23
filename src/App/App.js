@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Signup from '../Signup/Signup';
+import Login from '../Login/Login';
 
 class App extends Component {
   constructor(props) {
@@ -35,10 +36,9 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
+            <Route path="/login" render={props => <Login />} />
             <Route path="/signup" render={props => <Signup />} />
-            <Route path="/" render={props => (<Home {...props} {...this.state} fetchISS={this.fetchISS} />
-              )}
-            />
+            <Route path="/" render={props => (<Home {...props} {...this.state} fetchISS={this.fetchISS} />)} />
           </Switch>
         </main>
         <Footer />
