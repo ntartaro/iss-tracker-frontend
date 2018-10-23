@@ -14,10 +14,10 @@
   max-width: 100%;
   height: auto;
   margin: 30px auto;
-  padding: .25rem;
+  padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 .home h1 {

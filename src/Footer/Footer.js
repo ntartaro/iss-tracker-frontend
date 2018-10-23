@@ -9,13 +9,13 @@ class Footer extends Component {
         <div>
           <ul>
             <li>
-              <a>
+              <a href="https://github.com/ntartaro">
                 <img src="/images/github_logo.png" />
                 <p>ntartaro</p>
               </a>
             </li>
             <li>
-              <a>
+              <a href="https://github.com/ortizlu">
                 <img src="/images/github_logo.png" />
                 <p>ortizlu</p>
               </a>
