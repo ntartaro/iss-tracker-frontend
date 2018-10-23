@@ -1,9 +1,30 @@
 footer {
-  height: 50px;
-  padding: 80px;
+  height: 100px;
   background-color: #202124;
   box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+footer img {
+  height: 30px;
+}
+
+footer p {
+  color: white;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer ul {
+  margin-right: 10px;
+}
+
+footer li {
+  padding: 10px;
 }
