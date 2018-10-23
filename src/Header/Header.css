@@ -1,5 +1,4 @@
 header {
-  padding: 10px;
   background-color: #202124;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -18,6 +17,14 @@ header .logo-link {
   align-items: center;
 }
 
+header .header-signup {
+  margin-right: 10px;
+}
+
+header .logo-link:visited {
+  color: white;
+}
+
 header img {
   margin-left: 15px;
   margin-right: 20px;
@@ -29,10 +36,8 @@ header ul {
   flex-direction: row;
 }
 header li {
+  color: white;
   font-size: 20px;
   padding: 15px;
 }
 
-header .header-signup {
-  color: white;
-}
