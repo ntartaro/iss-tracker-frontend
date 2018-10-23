@@ -34,7 +34,7 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route path="/" render={props => <Home {...this.state} />} />
+            <Route path="/" render={props => <Home {...props} {...this.state} fetchISS={this.fetchISS}/>} />
           </Switch>
         </main>
         <Footer />

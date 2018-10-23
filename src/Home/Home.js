@@ -13,13 +13,13 @@ class Home extends Component {
               this.props.currentlat +
               ',' +
               this.props.currentlong +
-              '&zoom=4&size=500x500&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
+              '&zoom=4&size=400x400&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
             }
             alt="map of where the ISS is"
           />
         </div>
         <h2>Moscow, Russia</h2>
-        <button>Refresh</button>
+        <button onClick={this.props.fetchISS}>Refresh</button>
       </div>
     )
   }
