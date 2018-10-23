@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './Header.css';
+import React, { Component } from 'react'
+import './Header.css'
 
 class Header extends Component {
   render() {
@@ -8,7 +8,7 @@ class Header extends Component {
         <div className="logo">
           <a className="logo-link" href="/">
             <img src="/images/iss_logo.png" alt="ISS Logo" />
-            <p>ISS Tracker</p>
+            <p>WOW ISS</p>
           </a>
         </div>
         <ul className="header-signup">
@@ -16,8 +16,8 @@ class Header extends Component {
           <li>Log In</li>
         </ul>
       </header>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header
