@@ -19,8 +19,12 @@ footer ul {
 footer li {
   padding: 10px;
 }
-footer img {
+footer .git-logo {
   height: 25px;
+}
+
+footer .nasa-logo {
+  height: 40px;
 }
 
 footer p {
