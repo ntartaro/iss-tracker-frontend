@@ -5,8 +5,11 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <div>
-                    <a href='/' className='logo'>ISS Tracker</a>
+                <div className='logo'>
+                    <a className='logo-link' href='/'>
+                    <img src='/images/iss_logo.png' alt='ISS Logo' />
+                    <p>ISS Tracker</p>
+                    </a>
                 </div>
                 <ul className='header-signup'>
                     <li>Sign-Up</li>

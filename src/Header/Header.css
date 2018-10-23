@@ -1,5 +1,5 @@
 header {
-  padding: 25px;
+  padding: 10px;
   background-color: #202124;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -12,6 +12,18 @@ header .logo {
   font-weight: 800;
   color: white;
 }
+
+header .logo-link {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  margin-left: 15px;
+  margin-right: 20px;
+  height: 90px;
+}
+
 header ul {
   display: flex;
   flex-direction: row;

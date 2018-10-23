@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import Home from '../Home/Home'
-import { Route, Switch } from 'react-router-dom'
+
 
 class App extends Component {
   render() {
@@ -14,6 +16,7 @@ class App extends Component {
             <Route path="/" render={props => <Home />} />
           </Switch>
         </main>
+        <Footer />
       </div>
     )
   }
