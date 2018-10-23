@@ -20,7 +20,7 @@ class Signup extends Component {
             <input type="password" />
           </form>
           <div className="signup-button-wrapper">
-            <button className="signup-button">SUBMIT</button>
+            <button className="signup-button">SIGN UP</button>
           </div>
         </div>
       </section>

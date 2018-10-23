@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css'
+import './Login.css';
 
 class Login extends Component {
   render() {
@@ -10,10 +10,12 @@ class Login extends Component {
             <p>Log In</p>
           </div>
           <div className="login-main">
-            <p>Username:</p>
-            <input type="text" />
-            <p>Password:</p>
-            <input type="password" />
+            <form className="login-main-wrapper">
+              <label>Username:</label>
+              <input type="text" />
+              <label>Password:</label>
+              <input type="password" />
+            </form>
             <div className="login-button-wrapper">
               <button className="login-button">LOG IN</button>
             </div>
