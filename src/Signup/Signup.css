@@ -1,0 +1,19 @@
+.signup-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.signup-top {
+    padding-top: 20px;
+    width: 500px;
+    border: 1px solid black;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.signup-top p {
+    margin: 10px;
+    font-size: 30px;
+}

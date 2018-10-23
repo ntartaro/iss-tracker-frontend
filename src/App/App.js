@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import axios from 'axios';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
-import axios from 'axios'
+import Signup from '../Signup/Signup';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       currentlat: '0',
       currentlong: '-20'
-    }
+    };
   }
 
   componentDidMount() {
-    this.fetchISS()
+    this.fetchISS();
   }
 
   fetchISS = () => {
@@ -25,8 +26,8 @@ class App extends Component {
         currentlat: response.data.iss_position.latitude,
         currentlong: response.data.iss_position.longitude
       })
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -34,7 +35,10 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route path="/" render={props => <Home {...props} {...this.state} fetchISS={this.fetchISS}/>} />
+            <Route path="/signup" render={props => <Signup />} />
+            <Route path="/" render={props => (<Home {...props} {...this.state} fetchISS={this.fetchISS} />
+              )}
+            />
           </Switch>
         </main>
         <Footer />

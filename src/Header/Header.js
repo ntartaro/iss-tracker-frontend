@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './Header.css'
+import React, { Component } from 'react';
+import './Header.css';
 
 class Header extends Component {
   render() {
@@ -12,12 +12,16 @@ class Header extends Component {
           </a>
         </div>
         <ul className="header-signup">
-          <li>Sign-Up</li>
-          <li>Log In</li>
+          <a href="/signup">
+            <li>Sign-Up</li>
+          </a>
+          <a href="/login">
+            <li>Log In</li>
+          </a>
         </ul>
       </header>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;
