@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.css'
 import axios from 'axios'
 import Header from '../Header/Header'
@@ -96,8 +96,7 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  handleLogin = e => {
-    e.preventDefault()
+  handleLogin = () => {
     axios
       .post('http://localhost:3001/users/login', {
         username: this.state.username,
@@ -125,13 +124,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header handleLogOut={this.handleLogOut} />
         <main>
           <Switch>
             <Route
               path="/login"
               render={props => (
                 <Login
+                  {...props}
                   handleInput={this.handleInput}
                   handleLogin={this.handleLogin}
                 />
