@@ -8,6 +8,9 @@ import Home from '../Home/Home'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import { withRouter } from 'react-router-dom'
+import Userpage from '../Userpage/Userpage'
+import UserSettings from '../UserSettings/UserSettings'
+import NewLocation from '../NewLocation/NewLocation'
 import jwtDecode from 'jwt-decode'
 
 class App extends Component {
@@ -22,7 +25,7 @@ class App extends Component {
       isLoggedIn: false,
       currentlat: '0',
       currentlong: '-20',
-      city: 'Over a Body of Water'
+      city: ''
     }
   }
 
@@ -72,7 +75,7 @@ class App extends Component {
           })
         } else {
           this.setState({
-            city: 'Over a Body of Water'
+            city: ''
           })
         }
       })
@@ -106,7 +109,8 @@ class App extends Component {
       })
   }
 
-  handleLogin = () => {
+  handleLogin = e => {
+    e.preventDefault()
     axios
       .post('http://localhost:3001/users/login', {
         username: this.state.username,
@@ -150,6 +154,15 @@ class App extends Component {
         <main>
           <Switch>
             <Route
+              path="/user/:id/newlocation"
+              render={props => <NewLocation />}
+            />
+            <Route
+              path="/user/:id/settings"
+              render={props => <UserSettings />}
+            />
+            <Route path="/user/:id" render={props => <Userpage />} />
+            <Route
               path="/login"
               render={props => (
                 <Login
@@ -188,6 +201,7 @@ class App extends Component {
                   currentlong={this.state.currentlong}
                   city={this.state.city}
                   fetchISS={this.fetchISS}
+                  fetchCityCountry={this.fetchCityCountry}
                 />
               )}
             />
