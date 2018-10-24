@@ -16,6 +16,7 @@ class App extends Component {
 
     this.state = {
       error: false,
+      errormsg: '',
       username: '',
       password: '',
       isLoggedIn: false,
@@ -134,6 +135,12 @@ class App extends Component {
     localStorage.clear()
   }
 
+  changeMessage = msg => {
+    this.setState({
+      errormsg: msg
+    })
+  }
+
   render() {
     return (
       <div>
@@ -148,6 +155,8 @@ class App extends Component {
                   username={this.state.username}
                   password={this.state.password}
                   error={this.state.error}
+                  errormsg={this.state.errormsg}
+                  changeMessage={this.changeMessage}
                   handleInput={this.handleInput}
                   handleLogin={this.handleLogin}
                 />
@@ -161,6 +170,8 @@ class App extends Component {
                   username={this.state.username}
                   password={this.state.password}
                   error={this.state.error}
+                  changeMessage={this.changeMessage}
+                  errormsg={this.state.errormsg}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
                 />

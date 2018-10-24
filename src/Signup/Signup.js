@@ -7,6 +7,8 @@ class Signup extends Component {
     e.stopPropagation()
     if (this.props.username && this.props.password) {
       this.props.handleSignUp()
+    } else {
+      this.props.changeMessage('Fields cannot be empty.')
     }
   }
 
@@ -15,6 +17,7 @@ class Signup extends Component {
       <section className="signup-wrapper">
         <div className="signup-top">
           <p>Sign Up</p>
+          <span>{this.props.errormsg}</span>
         </div>
         <div className="signup-main">
           <form onSubmit={this.handleSubmit} className="signup-main-wrapper">

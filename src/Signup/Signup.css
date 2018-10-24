@@ -13,6 +13,8 @@
   border: 1.5px solid #202124;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-top p {
