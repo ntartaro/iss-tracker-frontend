@@ -2,33 +2,27 @@ import React, { Component } from 'react'
 import './Login.css'
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: false
-    }
-  }
-
   handleSubmit = e => {
     e.preventDefault()
     e.stopPropagation()
     if (this.props.username && this.props.password) {
       this.props.handleLogin()
+    } else {
+      this.props.changeMessage('Fields cannot be empty.')
     }
   }
 
+  componentWillUnmount() {
+    this.props.changeMessage('')
+  }
+
   render() {
-    let error
-    if (this.state.error) {
-      error = 'Username or password is incorrect.'
-    } else {
-    }
     return (
       <div>
         <section className="login-wrapper">
           <div className="login-top">
             <p>Log In</p>
-            <span>{error}</span>
+            <span className="error">{this.props.errormsg}</span>
           </div>
 
           <div className="login-main">

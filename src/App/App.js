@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.changeMessage('')
     //checking to see if there is a user currently logged in
     if (localStorage.token) {
       this.setState({
@@ -95,12 +96,12 @@ class App extends Component {
       //our token is stored and loggedIn is changed to true
       .then(response => {
         localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true })
+        this.setState({ isLoggedIn: true, errormsg: '' })
         this.props.history.push('/')
       })
       .catch(err => {
         this.setState({
-          error: true
+          errormsg: 'Username taken.'
         })
       })
   }
@@ -114,13 +115,14 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token
         this.setState({
-          isLoggedIn: true
+          isLoggedIn: true,
+          errormsg: ''
         })
         this.props.history.push('/')
       })
       .catch(err => {
         this.setState({
-          error: true
+          errormsg: 'Wrong username/password.'
         })
       })
   }

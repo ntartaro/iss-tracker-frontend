@@ -12,12 +12,16 @@ class Signup extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.changeMessage('')
+  }
+
   render() {
     return (
       <section className="signup-wrapper">
         <div className="signup-top">
           <p>Sign Up</p>
-          <span>{this.props.errormsg}</span>
+          <span className="error">{this.props.errormsg}</span>
         </div>
         <div className="signup-main">
           <form onSubmit={this.handleSubmit} className="signup-main-wrapper">

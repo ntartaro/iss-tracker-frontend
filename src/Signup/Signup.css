@@ -23,6 +23,11 @@
   font-size: 30px;
 }
 
+.error {
+  margin-bottom: 20px;
+  color: red;
+}
+
 .signup-main {
   display: flex;
   align-items: center;
