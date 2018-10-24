@@ -156,6 +156,7 @@ class App extends Component {
                   currentlong={this.state.currentlong}
                   city={this.state.city}
                   fetchISS={this.fetchISS}
+                  fetchCityCountry={this.fetchCityCountry}
                 />
               )}
             />
