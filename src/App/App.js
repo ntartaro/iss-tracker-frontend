@@ -110,7 +110,6 @@ class App extends Component {
   }
 
   handleLogin = e => {
-    e.preventDefault()
     axios
       .post('http://localhost:3001/users/login', {
         username: this.state.username,
