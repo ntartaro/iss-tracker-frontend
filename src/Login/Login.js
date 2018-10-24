@@ -2,37 +2,26 @@ import React, { Component } from 'react'
 import './Login.css'
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: ''
-    }
-  }
   handleSubmit = e => {
+    e.preventDefault()
+
     if (this.props.username && this.props.password) {
-      e.preventDefault()
-      this.props.handleLogin()
-    } else {
-      e.preventDefault()
-      this.setState({
-        error: 'Fields cannot be empty.'
-      })
+      this.props.handleSignUp()
     }
   }
 
   render() {
+    let error
     if (this.props.error) {
-      this.setState({
-        error: 'Username or password is incorrect.'
-      })
+      error = 'Username or password is incorrect.'
+    } else {
     }
-
     return (
       <div>
         <section className="login-wrapper">
           <div className="login-top">
             <p>Log In</p>
-            {this.state.error ? <span>{this.state.error}</span> : null}
+            <span>{error}</span>
           </div>
 
           <div className="login-main">
@@ -50,7 +39,7 @@ class Login extends Component {
                 onChange={this.props.handleInput}
               />
               <div className="login-button-wrapper">
-                <button className="login-button" onClick={this.handleSubmit}>
+                <button className="login-button" onSubmit={this.handleSubmit}>
                   LOG IN
                 </button>
               </div>

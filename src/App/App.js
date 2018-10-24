@@ -153,8 +153,6 @@ class App extends Component {
               render={props => (
                 <Login
                   {...props}
-                  username={this.state.username}
-                  password={this.state.password}
                   error={this.state.error}
                   handleInput={this.handleInput}
                   handleLogin={this.handleLogin}
@@ -165,8 +163,6 @@ class App extends Component {
               path="/signup"
               render={props => (
                 <Signup
-                  username={this.state.username}
-                  password={this.state.password}
                   {...props}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
