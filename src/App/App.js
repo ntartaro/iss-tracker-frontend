@@ -17,7 +17,8 @@ class App extends Component {
       password: '',
       isLoggedIn: false,
       currentlat: '0',
-      currentlong: '-20'
+      currentlong: '-20',
+      city: 'Over the Ocean'
     }
   }
 
@@ -37,12 +38,39 @@ class App extends Component {
   }
 
   fetchISS = () => {
-    axios.get('http://api.open-notify.org/iss-now.json').then(response =>
-      this.setState({
-        currentlat: response.data.iss_position.latitude,
-        currentlong: response.data.iss_position.longitude
+    axios
+      .get('http://api.open-notify.org/iss-now.json')
+      .then(response =>
+        this.setState({
+          currentlat: response.data.iss_position.latitude,
+          currentlong: response.data.iss_position.longitude
+        })
+      )
+      .then(_ => {
+        this.fetchCityCountry()
       })
-    )
+  }
+
+  //fetches the city and country and if found, displays it, otherwise
+  //displays over the ocean
+  fetchCityCountry = () => {
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${
+          this.state.currentlat
+        },${this.state.currentlong}&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo`
+      )
+      .then(response => {
+        if (response.data.plus_code.compound_code) {
+          this.setState({
+            city: response.data.plus_code.compound_code.substring(8)
+          })
+        } else {
+          this.setState({
+            city: 'Over the Ocean'
+          })
+        }
+      })
   }
 
   //handleInput gets the name from the input, and changes the state of the target's name to be the value of the target. For example, if the user is currently writing on the username input, our onChange will trigger this function, and will update our state above since the name of the input (name="username" in the form component) and the name of the state (username: '' in app.js) are the same
@@ -53,8 +81,7 @@ class App extends Component {
   }
 
   //this function first prevents default of the button (either in signup or login)
-  handleSignUp = e => {
-    e.preventDefault()
+  handleSignUp = () => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
       .post('http://localhost:3001/users/signup', {
@@ -62,15 +89,10 @@ class App extends Component {
         password: this.state.password
       })
       //our token is stored and loggedIn is changed to true
-      .then(
-        response => {
-          localStorage.token = response.data.token
-          this.setState({ isLoggedIn: true })
-        },
-        () => {
-          this.props.history.push('/')
-        }
-      )
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({ isLoggedIn: true })
+      })
       .catch(err => console.log(err))
   }
 
@@ -132,6 +154,7 @@ class App extends Component {
                   {...props}
                   currentlat={this.state.currentlat}
                   currentlong={this.state.currentlong}
+                  city={this.state.city}
                   fetchISS={this.fetchISS}
                 />
               )}

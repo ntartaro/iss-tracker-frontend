@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import './Signup.css'
 
 class Signup extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.state()
+  // }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.handleSignUp()
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <section className="signup-wrapper">
@@ -24,7 +35,7 @@ class Signup extends Component {
             />
           </form>
           <div className="signup-button-wrapper">
-            <button className="signup-button" onClick={this.props.handleSignUp}>
+            <button className="signup-button" onClick={this.handleSubmit}>
               SIGN UP
             </button>
           </div>

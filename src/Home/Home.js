@@ -18,7 +18,7 @@ class Home extends Component {
             alt="map of where the ISS is"
           />
         </div>
-        <h2>Moscow, Russia</h2>
+        <h2>{this.props.city}</h2>
         <button onClick={this.props.fetchISS}>Refresh</button>
       </div>
     )
