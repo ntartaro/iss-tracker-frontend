@@ -9,8 +9,9 @@ import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
+
     this.state = {
       username: '',
       password: '',
@@ -45,8 +46,7 @@ class App extends Component {
   }
 
   //handleInput gets the name from the input, and changes the state of the target's name to be the value of the target. For example, if the user is currently writing on the username input, our onChange will trigger this function, and will update our state above since the name of the input (name="username" in the form component) and the name of the state (username: '' in app.js) are the same
-  handleInput(e) {
-    console.log(e.target.name)
+  handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -62,10 +62,15 @@ class App extends Component {
         password: this.state.password
       })
       //our token is stored and loggedIn is changed to true
-      .then(response => {
-        localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true })
-      })
+      .then(
+        response => {
+          localStorage.token = response.data.token
+          this.setState({ isLoggedIn: true })
+        },
+        () => {
+          this.props.history.push('/')
+        }
+      )
       .catch(err => console.log(err))
   }
 
@@ -114,6 +119,7 @@ class App extends Component {
               path="/signup"
               render={props => (
                 <Signup
+                  {...props}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
                 />

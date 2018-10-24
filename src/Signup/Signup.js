@@ -24,7 +24,7 @@ class Signup extends Component {
             />
           </form>
           <div className="signup-button-wrapper">
-            <button className="signup-button" onClick={this.props.handleSignup}>
+            <button className="signup-button" onClick={this.props.handleSignUp}>
               SIGN UP
             </button>
           </div>
