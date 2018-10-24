@@ -18,7 +18,7 @@ class App extends Component {
       isLoggedIn: false,
       currentlat: '0',
       currentlong: '-20',
-      city: 'Over a Body of Water'
+      city: ''
     }
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
           })
         } else {
           this.setState({
-            city: 'Over a Body of Water'
+            city: ''
           })
         }
       })
