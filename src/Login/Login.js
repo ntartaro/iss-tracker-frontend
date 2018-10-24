@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import './Login.css'
+import React, { Component } from 'react';
+import './Login.css';
 
 class Login extends Component {
   handleSubmit = e => {
-    e.preventDefault()
-    e.stopPropagation()
+    e.preventDefault();
+    e.stopPropagation();
     if (this.props.username && this.props.password) {
-      this.props.handleLogin()
+      this.props.handleLogin();
     } else {
-      this.props.changeMessage('Fields cannot be empty.')
+      this.props.changeMessage('Fields cannot be empty.');
     }
-  }
+  };
 
   componentWillUnmount() {
-    this.props.changeMessage('')
+    this.props.changeMessage('');
   }
 
   render() {
@@ -46,8 +46,8 @@ class Login extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default Login
+export default Login;

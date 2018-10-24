@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewLocation.css'
+import './NewLocation.css';
 
 class NewLocation extends Component {
   render() {
@@ -11,20 +11,12 @@ class NewLocation extends Component {
         <div className="newlocation-main">
           <form className="newlocation-main-wrapper">
             <label htmlFor="title">Title:</label>
-            <input
-              type="text"
-              name="title"
-            />
+            <input type="text" name="title" />
             <label htmlFor="location">Location (Coordinates or Address):</label>
-            <input
-              type="text"
-              name="location"
-            />
+            <input type="text" name="location" />
           </form>
           <div className="create-button-wrapper">
-            <button className="create-button">
-              CREATE
-            </button>
+            <button className="create-button">CREATE</button>
           </div>
         </div>
       </section>

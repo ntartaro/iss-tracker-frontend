@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import './Signup.css'
+import React, { Component } from 'react';
+import './Signup.css';
 
 class Signup extends Component {
   handleSubmit = e => {
-    e.preventDefault()
-    e.stopPropagation()
+    e.preventDefault();
+    e.stopPropagation();
     if (this.props.username && this.props.password) {
-      this.props.handleSignUp()
+      this.props.handleSignUp();
     } else {
-      this.props.changeMessage('Fields cannot be empty.')
+      this.props.changeMessage('Fields cannot be empty.');
     }
-  }
+  };
 
   componentWillUnmount() {
-    this.props.changeMessage('')
+    this.props.changeMessage('');
   }
 
   render() {
@@ -43,8 +43,8 @@ class Signup extends Component {
           </form>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

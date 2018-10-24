@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import './Header.css'
-import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import jwtDecode from 'jwt-decode'
+import React, { Component } from 'react';
+import './Header.css';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 class Header extends Component {
   handleLogout = e => {
-    e.preventDefault()
-    this.props.handleLogOut()
-    this.props.history.push('/')
-  }
+    e.preventDefault();
+    this.props.handleLogOut();
+    this.props.history.push('/');
+  };
 
   render() {
-    let name
+    let name;
     if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username
+      name = jwtDecode(localStorage.token).username;
     }
     return (
       <header>
@@ -48,4 +48,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+export default withRouter(Header);

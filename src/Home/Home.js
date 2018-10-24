@@ -31,9 +31,9 @@ class Home extends Component {
 
   mapSatellite = () => {
     if (this.state.maptype === 'hybrid') {
-      return
+      return;
     }
-    this.setState({maptype: 'hybrid'})
+    this.setState({ maptype: 'hybrid' });
     this.props.fetchCityCountry();
     console.log(this.state.maptype);
     console.log('satellite');
@@ -41,9 +41,9 @@ class Home extends Component {
 
   mapDefault = () => {
     if (this.state.maptype === 'roadmap') {
-      return
+      return;
     }
-    this.setState({maptype: 'roadmap'})
+    this.setState({ maptype: 'roadmap' });
     this.props.fetchCityCountry();
     console.log(this.state.maptype);
     console.log('roadmap');
@@ -80,8 +80,12 @@ class Home extends Component {
           <button className="zoom-out-button" onClick={this.zoomOut}>
             ZOOM -
           </button>
-          <button className="satellite-button" onClick={this.mapSatellite}>SATELLITE</button>
-          <button className="default-button" onClick={this.mapDefault}>DEFAULT</button>
+          <button className="satellite-button" onClick={this.mapSatellite}>
+            SATELLITE
+          </button>
+          <button className="default-button" onClick={this.mapDefault}>
+            DEFAULT
+          </button>
         </div>
         <h2>{this.props.city}</h2>
         <button className="refresh-map" onClick={this.props.fetchISS}>

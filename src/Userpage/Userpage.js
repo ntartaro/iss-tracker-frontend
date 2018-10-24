@@ -8,7 +8,7 @@ class Userpage extends Component {
         <div className="user-settings">
           <p>User Settings</p>
           <ul>
-            <a className="new-location-link" href='/user/:id/newlocation'>
+            <a className="new-location-link" href="/user/:id/newlocation">
               <li>New Location</li>
             </a>
             <a className="edit-user-link">
