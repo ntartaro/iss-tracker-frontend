@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 class Header extends Component {
   handleLogout = e => {
@@ -11,7 +12,10 @@ class Header extends Component {
   }
 
   render() {
-    console.log(localStorage.token)
+    let name
+    if (localStorage.token) {
+      name = jwtDecode(localStorage.token).username
+    }
     return (
       <header>
         <div className="logo">
@@ -21,15 +25,23 @@ class Header extends Component {
           </Link>
         </div>
         <ul className="header-signup">
-          <Link to="/signup">
-            <li>Signup</li>
-          </Link>
-          <Link to="/login">
-            <li>Login</li>
-          </Link>
-          <a href="#" onClick={this.handleLogout}>
-            <li>Logout</li>
-          </a>
+          {localStorage.token ? (
+            <div className="flex">
+              <li>Hello, {name}</li>
+              <a href="#" onClick={this.handleLogout}>
+                <li>Logout</li>
+              </a>
+            </div>
+          ) : (
+            <div className="flex">
+              <Link to="/signup">
+                <li>Signup</li>
+              </Link>
+              <Link to="/login">
+                <li>Login</li>
+              </Link>
+            </div>
+          )}
         </ul>
       </header>
     )

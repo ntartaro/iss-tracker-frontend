@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import axios from 'axios'
 import Header from '../Header/Header'
@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer'
 import Home from '../Home/Home'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
+import jwtDecode from 'jwt-decode'
 
 class App extends Component {
   constructor() {
