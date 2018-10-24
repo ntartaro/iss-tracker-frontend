@@ -7,16 +7,21 @@ class Userpage extends Component {
       <div className="grid-container">
         <div className="user-settings">
           <p>User Settings</p>
-          <button className="new-location-button">New Location</button>
-          <button className="edit-user-button">Edit User</button>
-          <button className="delete-user-button">Delete User</button>
+          <ul>
+            <a className="new-location-link" href='/user/:id/newlocation'>
+              <li>New Location</li>
+            </a>
+            <a className="edit-user-link">
+              <li>Edit User</li>
+            </a>
+          </ul>
         </div>
         <div className="user-locations">
           <p>User Locations</p>
         </div>
         <div className="location one">
           <img src="/images/iss_logo.png" />
-          <div className='location-button-wrapper'>
+          <div className="location-button-wrapper">
             <button>Edit</button>
             <button>Delete</button>
           </div>

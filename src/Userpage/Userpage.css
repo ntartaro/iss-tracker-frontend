@@ -13,13 +13,13 @@
 }
 
 .user-locations {
-    text-align: center;
-    font-size: 40px;
+  text-align: center;
+  font-size: 40px;
 }
 
 .user-settings {
-  margin-top: 40px ;
-  margin-bottom: 40px ;
+  margin-top: 40px;
+  margin-bottom: 40px;
   height: 100%;
   border-right: #202124 1.5px solid;
   border-top: #202124 1.5px solid;
@@ -38,7 +38,11 @@
   margin: 10px 0px;
 }
 
-.new-location-button {
+.user-settings li {
+  color: #202124;
+}
+
+.new-location-link {
   height: 30px;
   width: 120px;
   margin: 8px 5px;
@@ -51,7 +55,7 @@
   transition: box-shadow 0.1s ease-in;
 }
 
-.edit-user-button {
+.edit-user-link {
   height: 30px;
   width: 120px;
   margin: 8px 5px;
@@ -78,6 +82,7 @@
 }
 
 .location-button-wrapper {
+  display: flex;
 }
 
 .grid-container img {
