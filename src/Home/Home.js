@@ -30,10 +30,10 @@ class Home extends Component {
   };
 
   mapSatellite = () => {
-    if (this.state.maptype === 'satellite') {
+    if (this.state.maptype === 'hybrid') {
       return
     }
-    this.setState({maptype: 'satellite'})
+    this.setState({maptype: 'hybrid'})
     this.props.fetchCityCountry();
     console.log(this.state.maptype);
     console.log('satellite');
