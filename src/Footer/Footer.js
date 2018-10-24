@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './Footer.css';
+import React, { Component } from 'react'
+import './Footer.css'
 
 class Footer extends Component {
   render() {
@@ -7,7 +7,11 @@ class Footer extends Component {
       <footer>
         <div>
           <a href="https://www.nasa.gov/mission_pages/station/main/index.html">
-            <img className='nasa-logo' src="/images/nasa.svg" alt="NASA Logo" />
+            <img
+              className="nasa-logo"
+              src="/images/nasa2.png"
+              alt="NASA Logo"
+            />
           </a>
         </div>
         <div>
@@ -35,8 +39,8 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

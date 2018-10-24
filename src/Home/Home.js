@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <h1>Where over the World is the ISS?</h1>
+        <h1>Where Over the World is the ISS?</h1>
         <div>
           <img
             src={
