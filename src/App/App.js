@@ -12,12 +12,26 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      username: '',
+      password: '',
+      isLoggedIn: false,
       currentlat: '0',
       currentlong: '-20'
     }
   }
 
   componentDidMount() {
+    //checking to see if there is a user currently logged in
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        isLoggedIn: false
+      })
+    }
+    //fetches the ISS image
     this.fetchISS()
   }
 
@@ -30,18 +44,90 @@ class App extends Component {
     )
   }
 
+  //handleInput gets the name from the input, and changes the state of the target's name to be the value of the target. For example, if the user is currently writing on the username input, our onChange will trigger this function, and will update our state above since the name of the input (name="username" in the form component) and the name of the state (username: '' in app.js) are the same
+  handleInput(e) {
+    console.log(e.target.name)
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  //this function first prevents default of the button (either in signup or login)
+  handleSignUp = e => {
+    e.preventDefault()
+    //axios posts the new user to our backend using the UserInput paremeter
+    axios
+      .post('http://localhost:3001/users/signup', {
+        username: this.state.username,
+        password: this.state.password
+      })
+      //our token is stored and loggedIn is changed to true
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({ isLoggedIn: true })
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleLogin = e => {
+    e.preventDefault()
+    axios
+      .post('http://localhost:3001/users/login', {
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({
+          isLoggedIn: true
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleLogOut = () => {
+    //we're setting everything back to default and clearing the local storage so it doesn't keep track of user
+    this.setState({
+      username: '',
+      password: '',
+      isLoggedIn: false
+    })
+    localStorage.clear()
+  }
+
   render() {
     return (
       <div>
         <Header />
         <main>
           <Switch>
-            <Route path="/login" render={props => <Login />} />
-            <Route path="/signup" render={props => <Signup />} />
+            <Route
+              path="/login"
+              render={props => (
+                <Login
+                  handleInput={this.handleInput}
+                  handleLogin={this.handleLogin}
+                />
+              )}
+            />
+            <Route
+              path="/signup"
+              render={props => (
+                <Signup
+                  handleInput={this.handleInput}
+                  handleSignUp={this.handleSignUp}
+                />
+              )}
+            />
             <Route
               path="/"
               render={props => (
-                <Home {...props} {...this.state} fetchISS={this.fetchISS} />
+                <Home
+                  {...props}
+                  currentlat={this.state.currentlat}
+                  currentlong={this.state.currentlong}
+                  fetchISS={this.fetchISS}
+                />
               )}
             />
           </Switch>
