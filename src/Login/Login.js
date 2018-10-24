@@ -2,17 +2,24 @@ import React, { Component } from 'react'
 import './Login.css'
 
 class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      error: false
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault()
-
+    e.stopPropagation()
     if (this.props.username && this.props.password) {
-      this.props.handleSignUp()
+      this.props.handleLogin()
     }
   }
 
   render() {
     let error
-    if (this.props.error) {
+    if (this.state.error) {
       error = 'Username or password is incorrect.'
     } else {
     }
@@ -25,7 +32,7 @@ class Login extends Component {
           </div>
 
           <div className="login-main">
-            <form className="login-main-wrapper">
+            <form onSubmit={this.handleSubmit} className="login-main-wrapper">
               <label htmlFor="username">Username:</label>
               <input
                 type="text"
@@ -39,9 +46,7 @@ class Login extends Component {
                 onChange={this.props.handleInput}
               />
               <div className="login-button-wrapper">
-                <button className="login-button" onSubmit={this.handleSubmit}>
-                  LOG IN
-                </button>
+                <button className="login-button">LOG IN</button>
               </div>
             </form>
           </div>

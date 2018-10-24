@@ -3,8 +3,9 @@ import './Signup.css'
 
 class Signup extends Component {
   handleSubmit = e => {
+    e.preventDefault()
+    e.stopPropagation()
     if (this.props.username && this.props.password) {
-      e.preventDefault()
       this.props.handleSignUp()
     }
   }
@@ -16,7 +17,7 @@ class Signup extends Component {
           <p>Sign Up</p>
         </div>
         <div className="signup-main">
-          <form className="signup-main-wrapper">
+          <form onSubmit={this.handleSubmit} className="signup-main-wrapper">
             <label htmlFor="username">Username:</label>
             <input
               type="text"
@@ -30,9 +31,7 @@ class Signup extends Component {
               onChange={this.props.handleInput}
             />
             <div className="signup-button-wrapper">
-              <button className="signup-button" onSubmit={this.handleSubmit}>
-                SIGN UP
-              </button>
+              <button className="signup-button">SIGN UP</button>
             </div>
           </form>
         </div>

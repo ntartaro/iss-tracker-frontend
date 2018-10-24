@@ -94,12 +94,7 @@ class App extends Component {
       //our token is stored and loggedIn is changed to true
       .then(response => {
         localStorage.token = response.data.token
-        this.setState({
-          isLoggedIn: true,
-          error: false,
-          username: '',
-          password: ''
-        })
+        this.setState({ isLoggedIn: true })
         this.props.history.push('/')
       })
       .catch(err => {
@@ -118,10 +113,7 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token
         this.setState({
-          isLoggedIn: true,
-          error: false,
-          username: '',
-          password: ''
+          isLoggedIn: true
         })
         this.props.history.push('/')
       })
@@ -153,6 +145,8 @@ class App extends Component {
               render={props => (
                 <Login
                   {...props}
+                  username={this.state.username}
+                  password={this.state.password}
                   error={this.state.error}
                   handleInput={this.handleInput}
                   handleLogin={this.handleLogin}
@@ -164,6 +158,9 @@ class App extends Component {
               render={props => (
                 <Signup
                   {...props}
+                  username={this.state.username}
+                  password={this.state.password}
+                  error={this.state.error}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
                 />
