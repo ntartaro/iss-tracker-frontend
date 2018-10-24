@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer'
 import Home from '../Home/Home'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
+import Userpage from '../Userpage/Userpage'
 
 class App extends Component {
   constructor() {
@@ -128,6 +129,11 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
+            <Route 
+            path='/user/:id'
+            render={props => (
+              <Userpage />
+            )} />
             <Route
               path="/login"
               render={props => (
