@@ -13,12 +13,19 @@
   border: 1.5px solid #202124;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-top p {
   color: #202124;
   margin-bottom: 15px;
   font-size: 30px;
+}
+
+.error {
+  margin-bottom: 20px;
+  color: red;
 }
 
 .signup-main {

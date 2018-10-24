@@ -35,9 +35,13 @@ header ul {
   display: flex;
   flex-direction: row;
 }
+
 header li {
   color: white;
   font-size: 20px;
   padding: 15px;
 }
 
+.flex {
+  display: flex;
+}

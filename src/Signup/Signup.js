@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import './Signup.css'
 
 class Signup extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state()
-  // }
-
   handleSubmit = e => {
     e.preventDefault()
-    this.props.handleSignUp()
-    this.props.history.push('/')
+    e.stopPropagation()
+    if (this.props.username && this.props.password) {
+      this.props.handleSignUp()
+    } else {
+      this.props.changeMessage('Fields cannot be empty.')
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.changeMessage('')
   }
 
   render() {
@@ -18,9 +21,10 @@ class Signup extends Component {
       <section className="signup-wrapper">
         <div className="signup-top">
           <p>Sign Up</p>
+          <span className="error">{this.props.errormsg}</span>
         </div>
         <div className="signup-main">
-          <form className="signup-main-wrapper">
+          <form onSubmit={this.handleSubmit} className="signup-main-wrapper">
             <label htmlFor="username">Username:</label>
             <input
               type="text"
@@ -33,12 +37,10 @@ class Signup extends Component {
               name="password"
               onChange={this.props.handleInput}
             />
+            <div className="signup-button-wrapper">
+              <button className="signup-button">SIGN UP</button>
+            </div>
           </form>
-          <div className="signup-button-wrapper">
-            <button className="signup-button" onClick={this.handleSubmit}>
-              SIGN UP
-            </button>
-          </div>
         </div>
       </section>
     )
