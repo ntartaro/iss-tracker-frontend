@@ -1,23 +1,46 @@
 import React, { Component } from 'react';
-import './Userpage.css'
+import './Userpage.css';
 
 class Userpage extends Component {
   render() {
     return (
       <div className="grid-container">
-        <div className="user-welcome">
-          <p>Welcome, User</p>
-          <button>New Location</button>
+        <div className="user-locations">
+          <p>User Locations</p>
         </div>
-        <div className='location-1'><img src='/images/iss_logo.png' /></div>
-        <div className='location-2'><img src='/images/iss_logo.png' /></div>
-        <div className='location-3'><img src='/images/iss_logo.png' /></div>
-        <div className='location-4'><img src='/images/iss_logo.png' /></div>
-        <div className='location-5'><img src='/images/iss_logo.png' /></div>
-        <div className='location-6'><img src='/images/iss_logo.png' /></div>
-        <div className='location-7'><img src='/images/iss_logo.png' /></div>
-        <div className='location-8'><img src='/images/iss_logo.png' /></div>
-        <div className='location-9'><img src='/images/iss_logo.png' /></div>
+        <div className="user-settings">
+          <p>User Settings</p>
+          <button className="new-location-button">New Location</button>
+          <button className="edit-user-button">Edit User</button>
+          <button className="delete-user-button">Delete User</button>
+        </div>
+        <div className="location one">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location two">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location three">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location four">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location five">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location six">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location seven">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location eight">
+          <img src="/images/iss_logo.png" />
+        </div>
+        <div className="location nine">
+          <img src="/images/iss_logo.png" />
+        </div>
       </div>
     );
   }
