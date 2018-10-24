@@ -2,15 +2,11 @@ import React, { Component } from 'react'
 import './Signup.css'
 
 class Signup extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state()
-  // }
-
   handleSubmit = e => {
-    e.preventDefault()
-    this.props.handleSignUp()
-    this.props.history.push('/')
+    if (this.props.username && this.props.password) {
+      e.preventDefault()
+      this.props.handleSignUp()
+    }
   }
 
   render() {
@@ -33,12 +29,12 @@ class Signup extends Component {
               name="password"
               onChange={this.props.handleInput}
             />
+            <div className="signup-button-wrapper">
+              <button className="signup-button" onSubmit={this.handleSubmit}>
+                SIGN UP
+              </button>
+            </div>
           </form>
-          <div className="signup-button-wrapper">
-            <button className="signup-button" onClick={this.handleSubmit}>
-              SIGN UP
-            </button>
-          </div>
         </div>
       </section>
     )

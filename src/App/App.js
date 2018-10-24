@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer'
 import Home from '../Home/Home'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
+import { withRouter } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     super()
 
     this.state = {
+      error: false,
       username: '',
       password: '',
       isLoggedIn: false,
@@ -92,9 +94,19 @@ class App extends Component {
       //our token is stored and loggedIn is changed to true
       .then(response => {
         localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true })
+        this.setState({
+          isLoggedIn: true,
+          error: false,
+          username: '',
+          password: ''
+        })
+        this.props.history.push('/')
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        this.setState({
+          error: true
+        })
+      })
   }
 
   handleLogin = () => {
@@ -106,10 +118,18 @@ class App extends Component {
       .then(response => {
         localStorage.token = response.data.token
         this.setState({
-          isLoggedIn: true
+          isLoggedIn: true,
+          error: false,
+          username: '',
+          password: ''
+        })
+        this.props.history.push('/')
+      })
+      .catch(err => {
+        this.setState({
+          error: true
         })
       })
-      .catch(err => console.log(err))
   }
 
   handleLogOut = () => {
@@ -133,6 +153,9 @@ class App extends Component {
               render={props => (
                 <Login
                   {...props}
+                  username={this.state.username}
+                  password={this.state.password}
+                  error={this.state.error}
                   handleInput={this.handleInput}
                   handleLogin={this.handleLogin}
                 />
@@ -142,6 +165,8 @@ class App extends Component {
               path="/signup"
               render={props => (
                 <Signup
+                  username={this.state.username}
+                  password={this.state.password}
                   {...props}
                   handleInput={this.handleInput}
                   handleSignUp={this.handleSignUp}
@@ -168,4 +193,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
