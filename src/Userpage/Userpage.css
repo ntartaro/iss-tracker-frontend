@@ -12,8 +12,14 @@
     '. . . . .';
 }
 
+.user-locations {
+    text-align: center;
+    font-size: 40px;
+}
+
 .user-settings {
-  margin-top: 40px;
+  margin-top: 40px ;
+  margin-bottom: 40px ;
   height: 100%;
   border-right: #202124 1.5px solid;
   border-top: #202124 1.5px solid;
@@ -71,6 +77,9 @@
   color: black;
 }
 
+.location-button-wrapper {
+}
+
 .grid-container img {
   height: 100px;
 }
@@ -87,6 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .location.one {

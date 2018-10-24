@@ -5,17 +5,21 @@ class Userpage extends Component {
   render() {
     return (
       <div className="grid-container">
-        <div className="user-locations">
-          <p>User Locations</p>
-        </div>
         <div className="user-settings">
           <p>User Settings</p>
           <button className="new-location-button">New Location</button>
           <button className="edit-user-button">Edit User</button>
           <button className="delete-user-button">Delete User</button>
         </div>
+        <div className="user-locations">
+          <p>User Locations</p>
+        </div>
         <div className="location one">
           <img src="/images/iss_logo.png" />
+          <div className='location-button-wrapper'>
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
         <div className="location two">
           <img src="/images/iss_logo.png" />
