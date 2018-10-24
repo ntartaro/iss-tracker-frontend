@@ -20,35 +20,35 @@ class Userpage extends Component {
           <p>User Locations</p>
         </div>
         <div className="location one">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
           <div className="location-button-wrapper">
             <button>Edit</button>
             <button>Delete</button>
           </div>
         </div>
         <div className="location two">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location three">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location four">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location five">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location six">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location seven">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location eight">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
         <div className="location nine">
-          <img src="/images/iss_logo.png" />
+          <img src="/images/staticmap.png" />
         </div>
       </div>
     );

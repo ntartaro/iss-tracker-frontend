@@ -68,7 +68,7 @@ class Home extends Component {
               this.state.maptype +
               '&zoom=' +
               this.state.zoom +
-              '&size=1000x400&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
+              '&size=400x400&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
             }
             alt="map of where the ISS is"
           />
