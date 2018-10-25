@@ -27,12 +27,12 @@ class Header extends Component {
         <ul className="header-signup">
           {localStorage.token ? (
             <div className="flex">
-              <a href={'/user/' + name}>
+              <Link to={'/user/' + name}>
                 <li>Hello, {name}</li>
-              </a>
-              <a href="#" onClick={this.handleLogout}>
+              </Link>
+              <Link to="#" onClick={this.handleLogout}>
                 <li>Logout</li>
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="flex">

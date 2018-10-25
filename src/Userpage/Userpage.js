@@ -32,7 +32,7 @@ class Userpage extends Component {
           this.props.user.savedLocations.map(location => (
             <div className="location one">
               <p>Test Title</p>
-              <img src="/images/staticmap.png" />
+              <img src="/images/staticmap.png" alt='location1' />
               <div className="location-button-wrapper">
                 <button>Edit</button>
                 <button>Delete</button>
