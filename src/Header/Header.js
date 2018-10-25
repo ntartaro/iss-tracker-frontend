@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import jwtDecode from 'jwt-decode'
 
 class Header extends Component {
   constructor(props) {
@@ -18,7 +17,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props.user.username)
     return (
       <header>
         <div className="logo">

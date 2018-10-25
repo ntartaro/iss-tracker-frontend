@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './EditLocation.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 class EditLocation extends Component {
   constructor(props) {

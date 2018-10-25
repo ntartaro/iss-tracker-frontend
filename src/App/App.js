@@ -196,7 +196,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.user)
     return (
       <div>
         <main>
@@ -231,7 +230,7 @@ class App extends Component {
             <Route
               path="/user/:id"
               render={props => {
-                return <Userpage {...props} user={this.state.user} />;
+                return <Userpage {...props}  />;
               }}
             />
             <Route
