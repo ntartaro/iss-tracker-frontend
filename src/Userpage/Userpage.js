@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import './Userpage.css';
-import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+import React, { Component } from 'react'
+import './Userpage.css'
+import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 class Userpage extends Component {
   render() {
-    let name;
+    let name
     if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username;
+      name = jwtDecode(localStorage.token).username
     }
     return (
       <section>
@@ -86,18 +86,8 @@ class Userpage extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-<<<<<<< HEAD
 export default Userpage
-=======
-Userpage.defaultProps = {
-  user: {
-    savedLocations: []
-  }
-};
-
-export default Userpage;
->>>>>>> 288268c62722560e6266b2251d20d9e9effb16c1

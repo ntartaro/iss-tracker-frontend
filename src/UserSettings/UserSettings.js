@@ -18,6 +18,7 @@ class UserSettings extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    this.props.history.push('/')
     this.props.userUpdate(this.props.user.id, this.state)
   }
 
