@@ -60,6 +60,7 @@
   margin-right: 50px;
 }
 .map-buttons-wrapper {
+  margin-top: 5px;
 }
 
 @media (max-width: 990px) {

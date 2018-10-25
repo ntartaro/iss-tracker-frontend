@@ -61,7 +61,7 @@ class Home extends Component {
               this.props.currentlat +
               ',' +
               this.props.currentlong +
-              '&markers=color:red%7Csize:small%7C' +
+              '&markers=icon:https://i.imgur.com/gS8VxFD.png|' +
               this.props.currentlat +
               ',' +
               this.props.currentlong +
