@@ -5,6 +5,12 @@ import { withRouter } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '' || jwtDecode(localStorage.token).username
+    }
+  }
   handleLogout = e => {
     e.preventDefault()
     this.props.handleLogOut()
@@ -12,10 +18,6 @@ class Header extends Component {
   }
 
   render() {
-    let name
-    if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username
-    }
     return (
       <header>
         <div className="logo">
@@ -27,8 +29,8 @@ class Header extends Component {
         <ul className="header-signup">
           {localStorage.token ? (
             <div className="flex">
-              <a href={'/user/' + name}>
-                <li>Hello, {name}</li>
+              <a href={'/user/' + this.state.name}>
+                <li>Hello, {this.state.name}</li>
               </a>
               <a href="#" onClick={this.handleLogout}>
                 <li>Logout</li>

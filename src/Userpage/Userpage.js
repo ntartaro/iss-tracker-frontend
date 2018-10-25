@@ -47,10 +47,4 @@ class Userpage extends Component {
   }
 }
 
-Userpage.defaultProps = {
-  user: {
-    savedLocations: []
-  }
-}
-
 export default Userpage

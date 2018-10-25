@@ -5,7 +5,8 @@ class UserSettings extends Component {
   constructor() {
     super()
     this.state = {
-      username: ''
+      username: '',
+      password: ''
     }
   }
 
@@ -13,6 +14,11 @@ class UserSettings extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.userUpdate(this.props.user.id, this.state)
   }
 
   render() {
@@ -28,13 +34,20 @@ class UserSettings extends Component {
               type="text"
               name="username"
               onChange={this.textChange}
-              value={this.state.username}
+              placeholder={this.props.user.username}
             />
             <label htmlFor="password">Password:</label>
-            <input type="password" name="password" />
+            <input
+              type="password"
+              name="password"
+              onChange={this.textChange}
+              placeholder="*******"
+            />
           </form>
           <div className="update-button-wrapper">
-            <button className="update-user-button">UPDATE</button>
+            <button onClick={this.handleSubmit} className="update-user-button">
+              UPDATE
+            </button>
             <div className="warning">
               <button className="delete-user-button">DELETE USER</button>
               <p className="warning-text">Are you sure?</p>
@@ -43,13 +56,6 @@ class UserSettings extends Component {
         </div>
       </section>
     )
-  }
-}
-
-UserSettings.defaultProps = {
-  user: {
-    savedLocations: [],
-    username: ''
   }
 }
 

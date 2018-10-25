@@ -26,7 +26,10 @@ class App extends Component {
       currentlat: '0',
       currentlong: '-20',
       city: '',
-      user: null
+      user: {
+        username: '',
+        savedLocations: []
+      }
     }
   }
 
@@ -168,6 +171,23 @@ class App extends Component {
     }
   }
 
+  userUpdate = (id, updatedUser) => {
+    axios
+      .put('http://localhost:3001/users/' + id, updatedUser, {
+        headers: {
+          Authorization: localStorage.token
+        }
+      })
+      .then(response => {
+        localStorage.clear()
+        localStorage.token = response.data.token
+        this.props.history.push('/')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   render() {
     return (
       <div>
@@ -180,7 +200,12 @@ class App extends Component {
             />
             <Route
               path="/user/:id/edit"
-              render={props => <UserSettings user={this.state.user} />}
+              render={props => (
+                <UserSettings
+                  user={this.state.user}
+                  userUpdate={this.userUpdate}
+                />
+              )}
             />
             <Route
               path="/user/:id"
