@@ -201,7 +201,7 @@ class App extends Component {
           <Switch>
             <Route
               path="/user/:id/newlocation"
-              render={props => <NewLocation user={this.state.user} />}
+              render={props => <NewLocation {...props} user={this.state.user} />}
             />
             <Route
               path="/user/:id/edit"

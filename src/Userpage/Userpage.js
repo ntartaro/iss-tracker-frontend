@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import './Userpage.css'
-import { Link } from 'react-router-dom'
-import jwtDecode from 'jwt-decode'
+import React, { Component } from 'react';
+import './Userpage.css';
+import { Link } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 class Userpage extends Component {
   render() {
-    let name
+    let name;
     if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username
+      name = jwtDecode(localStorage.token).username;
     }
     return (
       <section>
@@ -33,49 +33,28 @@ class Userpage extends Component {
             </ul>
           </div>
           <div className="location-wrapper">
-            {/* {this.props.user ? (
-              this.props.user.savedLocations.map(location => ( */}
-
-            <div className="location-card">
-              <img src="/images/staticmap.png" alt="location1" />
-              <div className="bottom-card">
-                <p>Washington D.C.</p>
-                <div className="location-button-wrapper">
-                  <button className="location-edit-button">EDIT</button>
-                  <button className="location-delete-button">DELETE</button>
+            {this.props.user ? (
+              this.props.user.savedLocations.map(location => (
+                <div className="location-card">
+                  <Link to={'/user/' + name + '/location/id'}>
+                    <img src="/images/staticmap.png" alt="location1" />
+                  </Link>
+                  <div className="bottom-card">
+                    <p>{location.title}</p>
+                    <div className="location-button-wrapper">
+                      <button className="location-edit-button">EDIT</button>
+                      <button className="location-delete-button">DELETE</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="location-card">
-              <img src="/images/staticmap.png" alt="location1" />
-              <div className="bottom-card">
-                <p>Los Angeles</p>
-                <div className="location-button-wrapper">
-                  <button className="location-edit-button">EDIT</button>
-                  <button className="location-delete-button">DELETE</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="location-card">
-              <img src="/images/staticmap.png" alt="location1" />
-              <div className="bottom-card">
-                <p>New York</p>
-                <div className="location-button-wrapper">
-                  <button className="location-edit-button">EDIT</button>
-                  <button className="location-delete-button">DELETE</button>
-                </div>
-              </div>
-            </div>
-            {/* ))
+              ))
             ) : (
               <div />
-            )} */}
+            )}
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
