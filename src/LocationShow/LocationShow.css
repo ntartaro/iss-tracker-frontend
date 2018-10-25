@@ -1,22 +1,10 @@
-.distance-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
 .user-wrapper {
-    display: flex;
+  position: absolute;
+  left: 15px;
+  display: flex;
   justify-content: left;
 }
 
 .map-wrapper {
-    /* display: flex;
-  justify-content: center; */
   align-self: center;
-}
-
-
-.blank-wrapper{
-    display: flex;
-    justify-content: right;
-    width: 500px;
 }

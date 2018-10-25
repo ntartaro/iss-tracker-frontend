@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './LocationShow.css'
+import { Link } from 'react-router-dom';
+import './LocationShow.css';
 
 class LocationShow extends Component {
   constructor(props) {
@@ -85,26 +86,28 @@ class LocationShow extends Component {
       <div className="home">
         <h1>How Far is My Location From the ISS?</h1>
         <h2>{this.state.locationInfo.title}</h2>
-        <div className='distance-wrapper'>
-        <div className="user-wrapper">
-          <div className="user-settings">
-            <p>User Settings</p>
-            <ul>
-              {/* <Link
-                className="new-location-link"
-                to={'/user/' + name + '/newlocation'}
-              > */}
-                <li>New Location</li>
-              {/* </Link>
-              <Link className="edit-user-link" to={'/user/' + name + '/edit'}> */}
-                <li>Edit User</li>
-              {/* </Link> */}
-            </ul>
+        <div className="distance-wrapper">
+          <div className="user-wrapper">
+            <div className="user-settings">
+              <p>Map Settings</p>
+              <ul>
+                <Link to="/">
+                  <li>Home Page</li>
+                </Link>
+                <Link to={'/user/' + this.props.match.params.id}>
+                  <li>User Page</li>
+                </Link>
+                <Link to={'/user/' + this.props.match.params.id + '/location/' + this.props.match.params.locationid + '/edit'}>
+                  <li>Edit Location</li>
+                </Link>
+                <Link to={'/user/' + '/edit'}>
+                  <li>Delete Location</li>
+                </Link>
+              </ul>
+            </div>
           </div>
         </div>
-
-        </div>
-        <div className='map-wrapper'>
+        <div className="map-wrapper">
           <img
             src={
               'https://maps.googleapis.com/maps/api/staticmap?center=' +
