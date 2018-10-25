@@ -37,13 +37,16 @@ class Userpage extends Component {
               this.props.user.savedLocations.map(location => {
                 return (
                   <div className="location-card">
-                    <Link to={'/user/' + name + '/location/id'}>
+                    <Link to={'/user/' + name + '/location/' + location._id}>
                       <img src="/images/staticmap.png" alt="location1" />
                     </Link>
                     <div className="bottom-card">
                       <p>{location.title}</p>
                       <div className="location-button-wrapper">
-                        <button className="location-edit-button">EDIT</button>
+                      <Link to={'/user/' + name + '/location/' + location._id + '/edit'}>
+                      <button className="location-edit-button">EDIT</button>
+                      </Link>
+                        
                         <button className="location-delete-button">
                           DELETE
                         </button>

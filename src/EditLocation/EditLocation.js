@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './NewLocation.css';
+import './EditLocation.css';
 import axios from 'axios';
 
-class NewLocation extends Component {
+class EditLocation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,36 +10,38 @@ class NewLocation extends Component {
       location: ''
     };
   }
-  createLocation = e => {
-    e.preventDefault();
-    axios
-      .post('http://localhost:3001/locations/', this.state, {
-        headers: {
-          Authorization: localStorage.token
-        }
-      })
-      .then(response => {
-        console.log('new location created');
-        this.props.history.push('/user/' + this.props.user.username);
-        this.props.userShow();
-      }).catch(err => console.log(err))
-  };
 
-  changeText = e => {
+  textChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
+    // handleSubmit = e => {
+    //   e.preventDefault()
+    //   axios
+    //   .put('http://localhost:3001/locations/' + this, this.state, {
+    //     headers: {
+    //       Authorization: localStorage.token
+    //     }
+    //   })
+    //   .then(response => {
+    //       this.props.history.push(location)
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+    // }
+
   render() {
     return (
-      <section className="newlocation-wrapper">
-        <div className="newlocation-top">
-          <p>New Location</p>
+      <section className="editlocation-wrapper">
+        <div className="editlocation-top">
+          <p>Edit Location</p>
         </div>
-        <div className="newlocation-main">
+        <div className="editlocation-main">
           <form
-            className="newlocation-main-wrapper"
+            className="editlocation-main-wrapper"
             // onSubmit={this.createLocation}
           >
             <label htmlFor="title">Title:</label>
@@ -47,18 +49,18 @@ class NewLocation extends Component {
               type="text"
               name="title"
               value={this.state.title}
-              onChange={this.changeText}
+              onChange={this.textChange}
             />
             <label htmlFor="location">Location (Coordinates or Address):</label>
             <input
               type="text"
               name="location"
               value={this.state.location}
-              onChange={this.changeText}
+              onChange={this.textChange}
             />
             <div className="create-button-wrapper">
               <button className="create-button" onClick={this.createLocation}>
-                CREATE
+                EDIT
               </button>
             </div>
           </form>
@@ -68,4 +70,4 @@ class NewLocation extends Component {
   }
 }
 
-export default NewLocation;
+export default EditLocation;
