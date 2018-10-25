@@ -1,19 +1,23 @@
-import React, { Component } from 'react'
-import './Userpage.css'
-import jwtDecode from 'jwt-decode'
-import axios from 'axios'
+import React, { Component } from 'react';
+import './Userpage.css';
+import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 
 class Userpage extends Component {
   render() {
+    let name;
+    if (localStorage.token) {
+      name = jwtDecode(localStorage.token).username;
+    }
     return (
       <div className="grid-container">
         <div className="user-settings">
           <p>User Settings</p>
           <ul>
-            <a className="new-location-link" href="/user/:id/newlocation">
+            <a className="new-location-link" href={"/user/" + name + "/newlocation"}>
               <li>New Location</li>
             </a>
-            <a className="edit-user-link">
+            <a className="edit-user-link" href={"/user/" + name + "/edit"}>
               <li>Edit User</li>
             </a>
           </ul>
@@ -30,8 +34,8 @@ class Userpage extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Userpage
+export default Userpage;

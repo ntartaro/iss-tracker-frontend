@@ -174,7 +174,7 @@ class App extends Component {
               render={props => <NewLocation />}
             />
             <Route
-              path="/user/:id/settings"
+              path="/user/:id/edit"
               render={props => <UserSettings />}
             />
             <Route path="/user/:id" render={props => <Userpage {...props} />} />
