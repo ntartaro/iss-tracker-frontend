@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import './Userpage.css';
-import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+import React, { Component } from 'react'
+import './Userpage.css'
+import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 class Userpage extends Component {
   render() {
-    let name;
+    let name
     if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username;
+      name = jwtDecode(localStorage.token).username
     }
     return (
       <section>
@@ -75,7 +75,7 @@ class Userpage extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 

@@ -8,7 +8,7 @@ class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '' || jwtDecode(localStorage.token).username
+      name: 'User'
     }
   }
   handleLogout = e => {
@@ -18,6 +18,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props.user.username)
     return (
       <header>
         <div className="logo">
@@ -29,8 +30,8 @@ class Header extends Component {
         <ul className="header-signup">
           {localStorage.token ? (
             <div className="flex">
-              <Link to={'/user/' + this.state.name}>
-                <li>Hello, {this.state.name}</li>
+              <Link to={'/user/' + this.props.user.username}>
+                <li>Hello, {this.props.user.username}</li>
               </Link>
               <Link to="#" onClick={this.handleLogout}>
                 <li>Logout</li>

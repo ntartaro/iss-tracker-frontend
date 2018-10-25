@@ -179,9 +179,14 @@ class App extends Component {
         }
       })
       .then(response => {
+        console.log('token should be gone!')
+        this.setState({
+          username: '',
+          password: '',
+          isLoggedIn: false
+        })
         localStorage.clear()
-        localStorage.token = response.data.token
-        this.props.history.push('/')
+        this.forceUpdate()
       })
       .catch(error => {
         console.log(error)
@@ -191,8 +196,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header handleLogOut={this.handleLogOut} />
         <main>
+          <Header handleLogOut={this.handleLogOut} user={this.state.user} />
           <Switch>
             <Route
               path="/user/:id/newlocation"
@@ -202,6 +207,7 @@ class App extends Component {
               path="/user/:id/edit"
               render={props => (
                 <UserSettings
+                  {...props}
                   user={this.state.user}
                   userUpdate={this.userUpdate}
                 />
@@ -257,8 +263,8 @@ class App extends Component {
               )}
             />
           </Switch>
+          <Footer />
         </main>
-        <Footer />
       </div>
     )
   }
