@@ -34,20 +34,24 @@ class Userpage extends Component {
           </div>
           <div className="location-wrapper">
             {this.props.user ? (
-              this.props.user.savedLocations.map(location => (
-                <div className="location-card">
-                  <Link to={'/user/' + name + '/location/id'}>
-                    <img src="/images/staticmap.png" alt="location1" />
-                  </Link>
-                  <div className="bottom-card">
-                    <p>{location.title}</p>
-                    <div className="location-button-wrapper">
-                      <button className="location-edit-button">EDIT</button>
-                      <button className="location-delete-button">DELETE</button>
+              this.props.user.savedLocations.map(location => {
+                return (
+                  <div className="location-card">
+                    <Link to={'/user/' + name + '/location/id'}>
+                      <img src="/images/staticmap.png" alt="location1" />
+                    </Link>
+                    <div className="bottom-card">
+                      <p>{location.title}</p>
+                      <div className="location-button-wrapper">
+                        <button className="location-edit-button">EDIT</button>
+                        <button className="location-delete-button">
+                          DELETE
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             ) : (
               <div />
             )}

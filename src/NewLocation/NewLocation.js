@@ -19,7 +19,9 @@ class NewLocation extends Component {
         }
       })
       .then(response => {
+        console.log('new location created');
         this.props.history.push('/user/' + this.props.user.username);
+        // this.props.userShow();
       });
   };
 
@@ -30,7 +32,6 @@ class NewLocation extends Component {
   };
 
   render() {
-    console.log(this.props.user.username);
     return (
       <section className="newlocation-wrapper">
         <div className="newlocation-top">
@@ -39,7 +40,7 @@ class NewLocation extends Component {
         <div className="newlocation-main">
           <form
             className="newlocation-main-wrapper"
-            onSubmit={this.createLocation}
+            // onSubmit={this.createLocation}
           >
             <label htmlFor="title">Title:</label>
             <input
@@ -56,7 +57,9 @@ class NewLocation extends Component {
               onChange={this.changeText}
             />
             <div className="create-button-wrapper">
-              <button className="create-button">CREATE</button>
+              <button className="create-button" onClick={this.createLocation}>
+                CREATE
+              </button>
             </div>
           </form>
         </div>
