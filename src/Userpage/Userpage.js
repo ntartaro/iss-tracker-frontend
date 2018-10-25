@@ -68,17 +68,6 @@ class Userpage extends Component {
                 </div>
               </div>
             </div>
-
-            <div className="location-card">
-              <img src="/images/staticmap.png" alt="location1" />
-              <div className="bottom-card">
-                <p>Los Angeles</p>
-                <div className="location-button-wrapper">
-                  <button className="location-edit-button">EDIT</button>
-                  <button className="location-delete-button">DELETE</button>
-                </div>
-              </div>
-            </div>
             {/* ))
             ) : (
               <div />
@@ -90,14 +79,4 @@ class Userpage extends Component {
   }
 }
 
-<<<<<<< HEAD
-export default Userpage
-=======
-Userpage.defaultProps = {
-  user: {
-    savedLocations: []
-  }
-};
-
 export default Userpage;
->>>>>>> 288268c62722560e6266b2251d20d9e9effb16c1
