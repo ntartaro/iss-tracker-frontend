@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import './Footer.css';
+import React, { Component } from 'react'
+import './Footer.css'
 
 class Footer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       img1: '/images/github_logo.png',
       img2: '/images/github_logo.png'
-    };
+    }
   }
 
   render() {
@@ -33,12 +33,12 @@ class Footer extends Component {
                 onMouseEnter={() => {
                   this.setState({
                     img2: '/images/github_logo2.png'
-                  });
+                  })
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img2: '/images/github_logo.png'
-                  });
+                  })
                 }}
               >
                 <img
@@ -52,18 +52,18 @@ class Footer extends Component {
             <div className="x">
               <p>x</p>
             </div>
-            <li className='nick'>
+            <li className="nick">
               <a
                 href="https://github.com/ntartaro"
                 onMouseEnter={() => {
                   this.setState({
                     img1: '/images/github_logo2.png'
-                  });
+                  })
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img1: '/images/github_logo.png'
-                  });
+                  })
                 }}
               >
                 <img
@@ -77,8 +77,8 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

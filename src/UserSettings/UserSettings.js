@@ -1,7 +1,20 @@
-import React, { Component } from 'react';
-import './UserSettings.css';
+import React, { Component } from 'react'
+import './UserSettings.css'
 
 class UserSettings extends Component {
+  constructor() {
+    super()
+    this.state = {
+      username: ''
+    }
+  }
+
+  textChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <section className="settings-wrapper">
@@ -11,7 +24,12 @@ class UserSettings extends Component {
         <div className="settings-main">
           <form className="settings-main-wrapper">
             <label htmlFor="username">Username:</label>
-            <input type="text" name="username" />
+            <input
+              type="text"
+              name="username"
+              onChange={this.textChange}
+              value={this.state.username}
+            />
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" />
           </form>
@@ -24,8 +42,15 @@ class UserSettings extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default UserSettings;
+UserSettings.defaultProps = {
+  user: {
+    savedLocations: [],
+    username: ''
+  }
+}
+
+export default UserSettings

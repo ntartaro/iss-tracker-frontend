@@ -25,7 +25,8 @@ class App extends Component {
       isLoggedIn: false,
       currentlat: '0',
       currentlong: '-20',
-      city: ''
+      city: '',
+      user: null
     }
   }
 
@@ -43,6 +44,7 @@ class App extends Component {
     }
     //fetches the ISS image
     this.fetchISS()
+    this.userShow()
   }
 
   fetchISS = () => {
@@ -150,14 +152,17 @@ class App extends Component {
     let id
     if (localStorage.token) {
       id = jwtDecode(localStorage.token).id
-
       axios
         .get('http://localhost:3001/users/' + id, {
           headers: {
-            Authorization: 'Bearer ' + localStorage.token
+            Authorization: localStorage.token
           }
         })
-        .then(response => console.log(response))
+        .then(response => {
+          this.setState({
+            user: response.data
+          })
+        })
     } else {
       console.log("you're not logged in")
     }
@@ -171,13 +176,18 @@ class App extends Component {
           <Switch>
             <Route
               path="/user/:id/newlocation"
-              render={props => <NewLocation />}
+              render={props => <NewLocation user={this.state.user} />}
             />
             <Route
               path="/user/:id/edit"
-              render={props => <UserSettings />}
+              render={props => <UserSettings user={this.state.user} />}
             />
-            <Route path="/user/:id" render={props => <Userpage {...props} />} />
+            <Route
+              path="/user/:id"
+              render={props => {
+                return <Userpage {...props} user={this.state.user} />
+              }}
+            />
             <Route
               path="/login"
               render={props => (

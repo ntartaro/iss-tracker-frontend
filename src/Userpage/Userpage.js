@@ -1,41 +1,56 @@
-import React, { Component } from 'react';
-import './Userpage.css';
-import jwtDecode from 'jwt-decode';
-import axios from 'axios';
+import React, { Component } from 'react'
+import './Userpage.css'
+import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 class Userpage extends Component {
   render() {
-    let name;
+    let name
     if (localStorage.token) {
-      name = jwtDecode(localStorage.token).username;
+      name = jwtDecode(localStorage.token).username
     }
     return (
       <div className="grid-container">
         <div className="user-settings">
           <p>User Settings</p>
           <ul>
-            <a className="new-location-link" href={"/user/" + name + "/newlocation"}>
+            <Link
+              className="new-location-link"
+              to={'/user/' + name + '/newlocation'}
+            >
               <li>New Location</li>
-            </a>
-            <a className="edit-user-link" href={"/user/" + name + "/edit"}>
+            </Link>
+            <Link className="edit-user-link" to={'/user/' + name + '/edit'}>
               <li>Edit User</li>
-            </a>
+            </Link>
           </ul>
         </div>
         <div className="user-locations">
           <p>User Locations</p>
         </div>
-        <div className="location one">
-          <p>Test Title</p>
-          <img src="/images/staticmap.png" />
-          <div className="location-button-wrapper">
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </div>
+        {this.props.user ? (
+          this.props.user.savedLocations.map(location => (
+            <div className="location one">
+              <p>Test Title</p>
+              <img src="/images/staticmap.png" />
+              <div className="location-button-wrapper">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div />
+        )}
       </div>
-    );
+    )
   }
 }
 
-export default Userpage;
+Userpage.defaultProps = {
+  user: {
+    savedLocations: []
+  }
+}
+
+export default Userpage
