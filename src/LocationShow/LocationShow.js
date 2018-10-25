@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './LocationShow.css'
 
 class LocationShow extends Component {
   constructor(props) {
@@ -84,7 +85,26 @@ class LocationShow extends Component {
       <div className="home">
         <h1>How Far is My Location From the ISS?</h1>
         <h2>{this.state.locationInfo.title}</h2>
-        <div>
+        <div className='distance-wrapper'>
+        <div className="user-wrapper">
+          <div className="user-settings">
+            <p>User Settings</p>
+            <ul>
+              {/* <Link
+                className="new-location-link"
+                to={'/user/' + name + '/newlocation'}
+              > */}
+                <li>New Location</li>
+              {/* </Link>
+              <Link className="edit-user-link" to={'/user/' + name + '/edit'}> */}
+                <li>Edit User</li>
+              {/* </Link> */}
+            </ul>
+          </div>
+        </div>
+
+        </div>
+        <div className='map-wrapper'>
           <img
             src={
               'https://maps.googleapis.com/maps/api/staticmap?center=' +
