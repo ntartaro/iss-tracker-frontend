@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
-import './Footer.css'
+import React, { Component } from 'react';
+import './Footer.css';
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      img1: '/images/github_logo.png',
+      img2: '/images/github_logo.png'
+    };
+  }
+
   render() {
     return (
       <footer>
         <div>
-          <a href="https://www.nasa.gov/mission_pages/station/main/index.html">
+          <a
+            className="nasa"
+            href="https://www.nasa.gov/mission_pages/station/main/index.html"
+          >
             <img
               className="nasa-logo"
               src="/images/nasa2.png"
@@ -17,30 +28,57 @@ class Footer extends Component {
         <div>
           <ul>
             <li>
-              <a href="https://github.com/ntartaro">
+              <a
+                href="https://github.com/ortizlu"
+                onMouseEnter={() => {
+                  this.setState({
+                    img2: '/images/github_logo2.png'
+                  });
+                }}
+                onMouseLeave={() => {
+                  this.setState({
+                    img2: '/images/github_logo.png'
+                  });
+                }}
+              >
                 <img
                   className="git-logo"
-                  src="/images/github_logo.png"
+                  src={this.state.img2}
                   alt="Github Link"
                 />
-                <p>ntartaro</p>
+                ortizlu
               </a>
             </li>
-            <li>
-              <a href="https://github.com/ortizlu">
+            <div className="x">
+              <p>x</p>
+            </div>
+            <li className='nick'>
+              <a
+                href="https://github.com/ntartaro"
+                onMouseEnter={() => {
+                  this.setState({
+                    img1: '/images/github_logo2.png'
+                  });
+                }}
+                onMouseLeave={() => {
+                  this.setState({
+                    img1: '/images/github_logo.png'
+                  });
+                }}
+              >
                 <img
                   className="git-logo"
-                  src="/images/github_logo.png"
+                  src={this.state.img1}
                   alt="Github Link"
                 />
-                <p>ortizlu</p>
+                ntartaro
               </a>
             </li>
           </ul>
         </div>
       </footer>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;

@@ -12,14 +12,28 @@ footer {
 }
 
 footer ul {
+  margin-right: -15px;
   display: flex;
   flex-direction: row;
 }
 
 footer li {
   padding: 10px;
+  transition: color 0.1s ease-in;
+  text-decoration: none;
 }
+
+footer a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+footer li:hover {
+  color: #202124;
+}
+
 footer .git-logo {
+  margin-right: 5px;
   height: 25px;
 }
 
@@ -27,13 +41,32 @@ footer .nasa-logo {
   height: 40px;
 }
 
-footer p {
-  margin: 5px;
+footer .nick {
+  margin-left: 3px;
+}
+
+footer .x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 
+footer .nasa {
+  width: 50px;
+  border-radius: 100%;
+}
+
 footer a {
+  padding: 5px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: left;
+  transition: background-color ease-in, color ease-in;
+}
+
+footer a:hover {
+  background: white;
+  color: #202124;
 }

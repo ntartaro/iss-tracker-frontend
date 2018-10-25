@@ -1,5 +1,5 @@
 .home {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,45 +7,35 @@
 }
 
 .home div {
-  padding: 0 20px;
 }
 
 .home div img {
   max-width: 100%;
   height: auto;
-  margin: 30px auto;
+  margin-top: 20px ;
   padding: 0.25rem;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  /* background-color: #fff; */
+  /* border: .1px solid #dee2e6; */
   border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.22);
 }
 
 .home h1 {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
   font-size: 4rem;
   text-align: center;
 }
 
-@media (max-width: 990px) {
-  .home h1 {
-    font-size: 3rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 760px) {
-  .home h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-
 .home h2 {
+  margin-top: 10px;
   font-size: 2rem;
+  text-decoration: underline;
 }
 
 .home button {
-  margin-bottom: 50px;
-  margin-top: 1rem;
+  text-align: center;
+  width: 110px;
+  margin-top: 5px;
   background-color: #202124;
   /* border taken from bootstrap class thumbnail */
   color: white;
@@ -62,6 +52,26 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.zoom-out-button{
+  margin-right: 50px;
+}
+
+.refresh-button {
+  margin-right: 50px;
+}
 .map-buttons-wrapper {
-  margin-top: -46px;
+}
+
+@media (max-width: 990px) {
+  .home h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .home h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
 }

@@ -53,6 +53,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>Where Over the World is the ISS?</h1>
+        <h2>{this.props.city}</h2>
         <div>
           <img
             src={
@@ -68,7 +69,7 @@ class Home extends Component {
               this.state.maptype +
               '&zoom=' +
               this.state.zoom +
-              '&size=400x400&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
+              '&size=1400x550&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
             }
             alt="map of where the ISS is"
           />
@@ -80,17 +81,16 @@ class Home extends Component {
           <button className="zoom-out-button" onClick={this.zoomOut}>
             ZOOM -
           </button>
+          <button className="refresh-button" onClick={this.props.fetchISS}>
+            REFRESH
+          </button>
           <button className="satellite-button" onClick={this.mapSatellite}>
             SATELLITE
           </button>
           <button className="default-button" onClick={this.mapDefault}>
-            DEFAULT
+            STANDARD
           </button>
         </div>
-        <h2>{this.props.city}</h2>
-        <button className="refresh-map" onClick={this.props.fetchISS}>
-          Refresh
-        </button>
       </div>
     );
   }

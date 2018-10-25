@@ -20,6 +20,7 @@ class Userpage extends Component {
           <p>User Locations</p>
         </div>
         <div className="location one">
+        <p>Test Title</p>
           <img src="/images/staticmap.png" />
           <div className="location-button-wrapper">
             <button>Edit</button>
@@ -27,16 +28,31 @@ class Userpage extends Component {
           </div>
         </div>
         <div className="location two">
+        <p>Test Title</p>
           <img src="/images/staticmap.png" />
+          <div className="location-button-wrapper">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
         <div className="location three">
           <img src="/images/staticmap.png" />
         </div>
         <div className="location four">
+        <p>Test Title</p>
           <img src="/images/staticmap.png" />
+          <div className="location-button-wrapper">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
         <div className="location five">
+        <p>Test Title</p>
           <img src="/images/staticmap.png" />
+          <div className="location-button-wrapper">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
         <div className="location six">
           <img src="/images/staticmap.png" />
@@ -48,7 +64,12 @@ class Userpage extends Component {
           <img src="/images/staticmap.png" />
         </div>
         <div className="location nine">
+        <p>Test Title</p>
           <img src="/images/staticmap.png" />
+          <div className="location-button-wrapper">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
         </div>
       </div>
     );

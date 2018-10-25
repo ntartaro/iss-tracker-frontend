@@ -67,4 +67,10 @@
   color: white;
   height: 40px;
   width: 150px;
+  transition: background-color 0.25s ease-in, color 0.25s ease-in;
+}
+
+.create-button:hover {
+background-color: white;
+color: #202124;
 }
