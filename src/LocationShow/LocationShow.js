@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './LocationShow.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import './LocationShow.css'
 
 class LocationShow extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       zoom: 4,
       maptype: 'roadmap',
@@ -15,41 +15,42 @@ class LocationShow extends Component {
         title: '',
         location: ''
       }
-    };
+    }
   }
 
   zoomOut = () => {
     if (this.state.zoom <= 1) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom - 1 });
-  };
+    this.setState({ zoom: this.state.zoom - 1 })
+  }
 
   zoomIn = () => {
     if (this.state.zoom >= 20) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom + 1 });
-  };
+    this.setState({ zoom: this.state.zoom + 1 })
+  }
 
   mapSatellite = () => {
     if (this.state.maptype === 'hybrid') {
-      return;
+      return
     }
-    this.setState({ maptype: 'hybrid' });
-  };
+    this.setState({ maptype: 'hybrid' })
+  }
 
   mapDefault = () => {
     if (this.state.maptype === 'roadmap') {
-      return;
+      return
     }
-    this.setState({ maptype: 'roadmap' });
-  };
+    this.setState({ maptype: 'roadmap' })
+  }
 
   getInfo = () => {
     axios
       .get(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://issdb.herokuapp.com/locations/' +
+          this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token
@@ -62,10 +63,10 @@ class LocationShow extends Component {
             title: response.data.title,
             location: response.data.location
           }
-        });
+        })
       })
-      .then(_ => this.fetchISS());
-  };
+      .then(_ => this.fetchISS())
+  }
 
   fetchISS = () => {
     axios
@@ -74,10 +75,10 @@ class LocationShow extends Component {
         this.setState({
           currentlat: response.data.iss_position.latitude,
           currentlong: response.data.iss_position.longitude
-        });
+        })
       })
-      .then(_ => this.getDistance());
-  };
+      .then(_ => this.getDistance())
+  }
 
   getDistance = () => {
     axios
@@ -91,14 +92,15 @@ class LocationShow extends Component {
           '&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
       )
       .then(response => {
-        console.log(response);
-      });
-  };
+        console.log(response)
+      })
+  }
 
   deleteLocation = () => {
     axios
       .delete(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://issdb.herokuapp.com/locations/' +
+          this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token
@@ -106,12 +108,12 @@ class LocationShow extends Component {
         }
       )
       .then(deletedLocation => {
-        this.props.history.push('/user/' + this.props.match.params.id);
-      });
-  };
+        this.props.history.push('/user/' + this.props.match.params.id)
+      })
+  }
 
   componentDidMount() {
-    this.getInfo();
+    this.getInfo()
   }
 
   render() {
@@ -141,7 +143,9 @@ class LocationShow extends Component {
                 >
                   <li>Edit Location</li>
                 </Link>
-                <li onClick={this.deleteLocation} className='super-delete'>Delete Location</li>
+                <li onClick={this.deleteLocation} className="super-delete">
+                  Delete Location
+                </li>
               </ul>
             </div>
           </div>
@@ -190,8 +194,8 @@ class LocationShow extends Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LocationShow;
+export default LocationShow

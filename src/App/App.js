@@ -99,7 +99,7 @@ class App extends Component {
   handleSignUp = () => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
-      .post('http://localhost:3001/users/signup', {
+      .post('https://issdb.herokuapp.com/users/signup', {
         username: this.state.username,
         password: this.state.password
       })
@@ -118,7 +118,7 @@ class App extends Component {
 
   handleLogin = e => {
     axios
-      .post('http://localhost:3001/users/login', {
+      .post('https://issdb.herokuapp.com/users/login', {
         username: this.state.username,
         password: this.state.password
       })
@@ -158,7 +158,7 @@ class App extends Component {
     if (localStorage.token) {
       id = jwtDecode(localStorage.token).id
       axios
-        .get('http://localhost:3001/users/' + id, {
+        .get('https://issdb.herokuapp.com/users/' + id, {
           headers: {
             Authorization: localStorage.token
           }

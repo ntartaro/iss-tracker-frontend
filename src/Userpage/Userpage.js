@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import './Userpage.css';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+import React, { Component } from 'react'
+import './Userpage.css'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 
 class Userpage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       user: {
         username: '',
         savedLocations: []
       }
-    };
+    }
   }
 
   userShow = () => {
-    let userid = jwtDecode(localStorage.token).id;
+    let userid = jwtDecode(localStorage.token).id
     if (localStorage.token) {
       axios
-        .get('http://localhost:3001/users/' + userid, {
+        .get('https://issdb.herokuapp.com/users/' + userid, {
           headers: {
             Authorization: localStorage.token
           }
@@ -27,25 +27,25 @@ class Userpage extends Component {
         .then(response => {
           this.setState({
             user: response.data
-          });
-        });
+          })
+        })
     }
-  };
+  }
 
   deleteLocation = location => {
     axios
-      .delete('http://localhost:3001/locations/' + location, {
+      .delete('https://issdb.herokuapp.com/locations/' + location, {
         headers: {
           Authorization: localStorage.token
         }
       })
       .then(deletedLocation => {
-        this.userShow();
-      });
-  };
+        this.userShow()
+      })
+  }
 
   componentDidMount() {
-    this.userShow();
+    this.userShow()
   }
 
   render() {
@@ -77,7 +77,7 @@ class Userpage extends Component {
           </div>
           <div className="location-wrapper">
             {this.state.user.savedLocations.map(location => {
-              console.log(location);
+              console.log(location)
               return (
                 <div key={location._id} className="location-card">
                   <Link
@@ -117,7 +117,7 @@ class Userpage extends Component {
                       <button
                         className="location-delete-button"
                         onClick={() => {
-                          this.deleteLocation(location._id);
+                          this.deleteLocation(location._id)
                         }}
                       >
                         DELETE
@@ -125,13 +125,13 @@ class Userpage extends Component {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default Userpage;
+export default Userpage

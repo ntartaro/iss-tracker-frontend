@@ -25,7 +25,7 @@ class UserSettings extends Component {
     if (localStorage.token) {
       axios
         .put(
-          'http://localhost:3001/users/' + this.state.currentId,
+          'https://issdb.herokuapp.com/users/' + this.state.currentId,
           {
             username: this.state.username,
             password: this.state.password
@@ -52,7 +52,7 @@ class UserSettings extends Component {
   deleteUser = () => {
     if (localStorage.token) {
       axios
-        .delete('http://localhost:3001/users/' + this.state.currentId, {
+        .delete('https://issdb.herokuapp.com/users/' + this.state.currentId, {
           headers: {
             Authorization: localStorage.token
           }
@@ -100,11 +100,11 @@ class UserSettings extends Component {
             />
           </form>
           <div className="update-button-wrapper">
-          <div className='logout-warning'>
-            <button onClick={this.userUpdate} className="update-user-button">
-              UPDATE
-            </button>
-            <p className="update-text">This will log you out!</p>
+            <div className="logout-warning">
+              <button onClick={this.userUpdate} className="update-user-button">
+                UPDATE
+              </button>
+              <p className="update-text">This will log you out!</p>
             </div>
             <div className="delete-warning">
               <button className="delete-user-button" onClick={this.deleteUser}>
