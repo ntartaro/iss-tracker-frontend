@@ -8,7 +8,9 @@ class UserSettings extends Component {
     super()
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      currentName: '',
+      currentId: ''
     }
   }
 
@@ -18,25 +20,59 @@ class UserSettings extends Component {
     })
   }
 
-  handleSubmit = e => {
+  userUpdate = e => {
     e.preventDefault()
-    this.props.history.push('/')
-    this.props.userUpdate(this.props.user.id, this.state)
+    if (localStorage.token) {
+      axios
+        .put(
+          'http://localhost:3001/users/' + this.state.currentId,
+          {
+            username: this.state.username,
+            password: this.state.password
+          },
+          {
+            headers: {
+              Authorization: localStorage.token
+            }
+          }
+        )
+        .then(response => {
+          console.log('user changed!')
+          this.props.handleLogOut()
+        })
+        .then(_ => {
+          this.props.history.push('/')
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   }
 
   deleteUser = () => {
-    let userid = jwtDecode(localStorage.token).id
     if (localStorage.token) {
       axios
-        .delete('http://localhost:3001/users/' + userid, {
+        .delete('http://localhost:3001/users/' + this.state.currentId, {
           headers: {
             Authorization: localStorage.token
           }
         })
         .then(deletedUser => {
+          console.log('user deleted!')
           this.props.handleLogOut()
+        })
+        .then(_ => {
           this.props.history.push('/')
         })
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage.token) {
+      this.setState({
+        currentName: jwtDecode(localStorage.token).username,
+        currentId: jwtDecode(localStorage.token).id
+      })
     }
   }
 
@@ -53,7 +89,7 @@ class UserSettings extends Component {
               type="text"
               name="username"
               onChange={this.textChange}
-              placeholder={this.props.user.username}
+              placeholder={this.state.currentName}
             />
             <label htmlFor="password">Password:</label>
             <input
@@ -65,7 +101,7 @@ class UserSettings extends Component {
           </form>
           <div className="update-button-wrapper">
           <div className='logout-warning'>
-            <button onClick={this.handleSubmit} className="update-user-button">
+            <button onClick={this.userUpdate} className="update-user-button">
               UPDATE
             </button>
             <p className="update-text">This will log you out!</p>
