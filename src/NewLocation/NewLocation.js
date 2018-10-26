@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
-import './NewLocation.css';
-import axios from 'axios';
+import React, { Component } from 'react'
+import './NewLocation.css'
+import axios from 'axios'
 
 class NewLocation extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       title: '',
       location: ''
-    };
+    }
   }
   createLocation = e => {
-    e.preventDefault();
+    e.preventDefault()
     axios
-      .post('http://localhost:3001/locations/', this.state, {
+      .post('https://issdb.herokuapp.com/locations/', this.state, {
         headers: {
           Authorization: localStorage.token
         }
       })
       .then(response => {
-        console.log('new location created');
-        this.props.history.push('/user/' + this.props.user.username);
-        this.props.userShow();
-      }).catch(err => console.log(err))
-  };
+        console.log('new location created')
+        this.props.history.push('/user/' + this.props.user.username)
+        this.props.userShow()
+      })
+      .catch(err => console.log(err))
+  }
 
   changeText = e => {
     this.setState({
       [e.target.name]: e.target.value
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -64,8 +65,8 @@ class NewLocation extends Component {
           </form>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default NewLocation;
+export default NewLocation
