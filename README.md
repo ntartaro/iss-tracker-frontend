@@ -1,5 +1,5 @@
 #  WOW-ISS
-Where Over the World is the International Space Station? Welcome to a collaboration between me and Luis Ortiz for our General Assembly Web Development Immersive. Our site can be found at https://wow-iss.surge.sh/
+Where Over the World is the International Space Station? Welcome to a collaboration between me and Luis Ortiz for our General Assembly Web Development Immersive. Our site can be found at http://wow-iss.surge.sh/
 
 ## Home Screen
 ![](https://i.imgur.com/lo3E4xw.png)
