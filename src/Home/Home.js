@@ -1,53 +1,53 @@
-import React, { Component } from 'react';
-import './Home.css';
+import React, { Component } from 'react'
+import './Home.css'
 
 class Home extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       zoom: 4,
       maptype: 'roadmap'
-    };
+    }
   }
   zoomOut = () => {
     if (this.state.zoom <= 1) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom - 1 });
-    this.props.fetchCityCountry();
-    console.log(this.state.zoom);
-    console.log('zoomed');
-  };
+    this.setState({ zoom: this.state.zoom - 1 })
+    this.props.fetchCityCountry()
+    console.log(this.state.zoom)
+    console.log('zoomed')
+  }
 
   zoomIn = () => {
     if (this.state.zoom >= 20) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom + 1 });
-    this.props.fetchCityCountry();
-    console.log(this.state.zoom);
-    console.log('zoomed');
-  };
+    this.setState({ zoom: this.state.zoom + 1 })
+    this.props.fetchCityCountry()
+    console.log(this.state.zoom)
+    console.log('zoomed')
+  }
 
   mapSatellite = () => {
     if (this.state.maptype === 'hybrid') {
-      return;
+      return
     }
-    this.setState({ maptype: 'hybrid' });
-    this.props.fetchCityCountry();
-    console.log(this.state.maptype);
-    console.log('satellite');
-  };
+    this.setState({ maptype: 'hybrid' })
+    this.props.fetchCityCountry()
+    console.log(this.state.maptype)
+    console.log('satellite')
+  }
 
   mapDefault = () => {
     if (this.state.maptype === 'roadmap') {
-      return;
+      return
     }
-    this.setState({ maptype: 'roadmap' });
-    this.props.fetchCityCountry();
-    console.log(this.state.maptype);
-    console.log('roadmap');
-  };
+    this.setState({ maptype: 'roadmap' })
+    this.props.fetchCityCountry()
+    console.log(this.state.maptype)
+    console.log('roadmap')
+  }
 
   render() {
     return (
@@ -92,8 +92,8 @@ class Home extends Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home
