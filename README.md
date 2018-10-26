@@ -1,4 +1,4 @@
-#  ISS-WOW
+#  WOW-ISS
 Where Over the World is the International Space Station? Welcome to a collaboration between me and Luis Ortiz for our General Assembly Web Development Immersive. Our site can be found at https://wow-iss.surge.sh/
 
 ## Home Screen
@@ -17,6 +17,8 @@ Users are able to:
 Future features we'd like to implement:
 - distance between saved location and ISS in miles/kilometers (in progress)
 - display number of rotations and length of time until ISS is above a specific location
+- information on a country/location pulled from wikipedia
+- mobile responsiveness
 
 
 ## Technologies Used
