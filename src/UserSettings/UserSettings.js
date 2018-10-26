@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './UserSettings.css'
+import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 
 class UserSettings extends Component {
   constructor() {
@@ -20,6 +22,22 @@ class UserSettings extends Component {
     e.preventDefault()
     this.props.history.push('/')
     this.props.userUpdate(this.props.user.id, this.state)
+  }
+
+  deleteUser = () => {
+    let userid = jwtDecode(localStorage.token).id
+    if (localStorage.token) {
+      axios
+        .delete('http://localhost:3001/users/' + userid, {
+          headers: {
+            Authorization: localStorage.token
+          }
+        })
+        .then(deletedUser => {
+          this.props.handleLogOut()
+          this.props.history.push('/')
+        })
+    }
   }
 
   render() {
@@ -50,7 +68,9 @@ class UserSettings extends Component {
               UPDATE
             </button>
             <div className="warning">
-              <button className="delete-user-button">DELETE USER</button>
+              <button className="delete-user-button" onClick={this.deleteUser}>
+                DELETE USER
+              </button>
               <p className="warning-text">Are you sure?</p>
             </div>
           </div>

@@ -228,6 +228,7 @@ class App extends Component {
                   {...props}
                   user={this.state.user}
                   userUpdate={this.userUpdate}
+                  handleLogOut={this.handleLogOut}
                 />
               )}
             />

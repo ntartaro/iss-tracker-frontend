@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import './Footer.css';
+import React, { Component } from 'react'
+import './Footer.css'
 
 class Footer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       img1: '/images/github_logo.png',
       img2: '/images/github_logo.png'
-    };
+    }
   }
 
   render() {
@@ -17,6 +17,7 @@ class Footer extends Component {
           <a
             target="_blank"
             className="nasa"
+            rel="noopener noreferrer"
             href="https://www.nasa.gov/mission_pages/station/main/index.html"
           >
             <img
@@ -31,16 +32,17 @@ class Footer extends Component {
             <li>
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://github.com/ortizlu"
                 onMouseEnter={() => {
                   this.setState({
                     img2: '/images/github_logo2.png'
-                  });
+                  })
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img2: '/images/github_logo.png'
-                  });
+                  })
                 }}
               >
                 <img
@@ -57,16 +59,17 @@ class Footer extends Component {
             <li className="nick">
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://github.com/ntartaro"
                 onMouseEnter={() => {
                   this.setState({
                     img1: '/images/github_logo2.png'
-                  });
+                  })
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img1: '/images/github_logo.png'
-                  });
+                  })
                 }}
               >
                 <img
@@ -80,8 +83,8 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

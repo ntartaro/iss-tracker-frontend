@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './LocationShow.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import './LocationShow.css'
 
 class LocationShow extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       zoom: 4,
       maptype: 'roadmap',
@@ -15,7 +15,7 @@ class LocationShow extends Component {
         title: '',
         location: ''
       }
-    };
+    }
   }
 
   getInfo = () => {
@@ -34,46 +34,46 @@ class LocationShow extends Component {
             title: response.data.title,
             location: response.data.location
           }
-        });
-      });
-  };
+        })
+      })
+  }
 
   zoomOut = () => {
     if (this.state.zoom <= 1) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom - 1 });
-  };
+    this.setState({ zoom: this.state.zoom - 1 })
+  }
 
   zoomIn = () => {
     if (this.state.zoom >= 20) {
-      return;
+      return
     }
-    this.setState({ zoom: this.state.zoom + 1 });
-  };
+    this.setState({ zoom: this.state.zoom + 1 })
+  }
 
   mapSatellite = () => {
     if (this.state.maptype === 'hybrid') {
-      return;
+      return
     }
-    this.setState({ maptype: 'hybrid' });
-  };
+    this.setState({ maptype: 'hybrid' })
+  }
 
   mapDefault = () => {
     if (this.state.maptype === 'roadmap') {
-      return;
+      return
     }
-    this.setState({ maptype: 'roadmap' });
-  };
+    this.setState({ maptype: 'roadmap' })
+  }
 
   fetchISS = () => {
     axios.get('http://api.open-notify.org/iss-now.json').then(response => {
       this.setState({
         currentlat: response.data.iss_position.latitude,
         currentlong: response.data.iss_position.longitude
-      });
-    });
-  };
+      })
+    })
+  }
 
   // getDistance = () => {
   //   console.log('front distance')
@@ -93,9 +93,24 @@ class LocationShow extends Component {
   //     });
   // };
 
+  deleteLocation = () => {
+    axios
+      .delete(
+        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        {
+          headers: {
+            Authorization: localStorage.token
+          }
+        }
+      )
+      .then(deletedLocation => {
+        this.props.history.push('/user/' + this.props.match.params.id)
+      })
+  }
+
   componentDidMount() {
-    this.getInfo();
-    this.fetchISS();
+    this.getInfo()
+    this.fetchISS()
     // this.getDistance();
   }
 
@@ -126,9 +141,7 @@ class LocationShow extends Component {
                 >
                   <li>Edit Location</li>
                 </Link>
-                <Link to={'/user/edit'}>
-                  <li>Delete Location</li>
-                </Link>
+                <li onClick={this.deleteLocation}>Delete Location</li>
               </ul>
             </div>
           </div>
@@ -177,8 +190,8 @@ class LocationShow extends Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LocationShow;
+export default LocationShow
