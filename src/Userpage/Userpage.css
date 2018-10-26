@@ -17,6 +17,7 @@
 
 .user-wrapper {
   display: flex;
+  margin-bottom: 60px;
 }
 
 .user-settings {

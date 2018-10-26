@@ -112,12 +112,6 @@ class LocationShow extends Component {
 
   componentDidMount() {
     this.getInfo();
-
-    // console.log(this.state);
-    // console.log(this.state.locationInfo.location);
-    // console.log(this.currentlat);
-    // console.log(this.currentlang);
-    // console.log(this.state.locationInfo.title);
   }
 
   render() {
@@ -126,7 +120,7 @@ class LocationShow extends Component {
         <h1>How Far is My Location From the ISS?</h1>
         <h2>{this.state.locationInfo.title}</h2>
         <div className="distance-wrapper">
-          <div className="user-wrapper">
+          <div className="user-wrapper-2">
             <div className="user-settings">
               <p>Map Settings</p>
               <ul>
@@ -147,7 +141,7 @@ class LocationShow extends Component {
                 >
                   <li>Edit Location</li>
                 </Link>
-                <li onClick={this.deleteLocation}>Delete Location</li>
+                <li onClick={this.deleteLocation} className='super-delete'>Delete Location</li>
               </ul>
             </div>
           </div>
