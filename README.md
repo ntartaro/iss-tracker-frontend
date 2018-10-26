@@ -7,10 +7,15 @@ Where Over the World is the International Space Station? Welcome to a collaborat
 ## Website Features
 The idea behind our site was to be able to visually track the ISS using Google Maps and allow users to see how far away the ISS is from a given location.
 
+<br>
+
 Users are able to:
 - sign up and log in with full authentication and password hashing
 - create and save location cards with titles and locations showing the visual distance to the ISS
 - see the current location of the ISS and the name of the city it is over, if any
+
+<br>
+<br>
 
 Future features we'd like to implement:
 - distance between saved location and ISS in miles/kilometers (in progress)
