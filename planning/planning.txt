@@ -1,0 +1,45 @@
+Project Idea:
+
+The Application tracks the current location of the ISS and displays it via google maps, with accompanying data of the country it is over. In addition:
+A user can save locations and get distance to ISS's current location
+A user can update/delete saved locations
+A user can find a location on the opposite side of the world
+
+
+Models:
+
+Location:
+
+Title of Saved Location
+Saved location Coordinates (Lat, Long)
+
+things to do: 
+
+```the link to go to the user page didn't get copied to the header. Your job is to link "Hello, Felix" to link to the user page```
+
+```make every component responsive```
+```make home page map full screen using flexbox```
+```making the edit page```
+```completing styling of the settings```
+```complete CRUD for saved location using authentication```
+
+```link the user page to the backend```
+```link user edit and delete to backend```
+```please style saved locations using actual maps please. No more satelites. We need to see how the maps will actually look with the grid```
+
+```figure out the google maps API for locating the distance from a location to another location (this is the most important part for our app!!)```
+Fix header to show current user
+README for GitHub
+Deploy!!!
+Add the wikipedia API
+Change stock location image for user's saved locations
+Change hover css for delete
+Delete button on location card
+Delete route for location
+Delete route for user
+Delete button on edit user page
+Collaboration in footer (created by)
+NASA LOGO  HOVER
+
+Distance
+Responsiveness
