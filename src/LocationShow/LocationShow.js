@@ -29,7 +29,6 @@ class LocationShow extends Component {
         }
       )
       .then(response => {
-        console.log(response);
         this.setState({
           locationInfo: {
             title: response.data.title,
@@ -76,9 +75,28 @@ class LocationShow extends Component {
     });
   };
 
+  // getDistance = () => {
+  //   console.log('front distance')
+  //   axios.get('localhost:3001/locations/api')
+  //     // .get('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
+  //       // 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' +
+  //       //   this.state.locationInfo.location +
+  //       //   '&destinations=' +
+  //       //   this.currentlat +
+  //       //   ',' +
+  //       //   this.currentlong +
+  //       //   '&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo',
+  //       //   { headers: { crossDomain: true, 'Content-Type': 'application/json'}}
+  //     // )
+  //     .then(response => {
+  //       console.log(response);
+  //     });
+  // };
+
   componentDidMount() {
     this.getInfo();
     this.fetchISS();
+    // this.getDistance();
   }
 
   render() {
@@ -97,10 +115,18 @@ class LocationShow extends Component {
                 <Link to={'/user/' + this.props.match.params.id}>
                   <li>User Page</li>
                 </Link>
-                <Link to={'/user/' + this.props.match.params.id + '/location/' + this.props.match.params.locationid + '/edit'}>
+                <Link
+                  to={
+                    '/user/' +
+                    this.props.match.params.id +
+                    '/location/' +
+                    this.props.match.params.locationid +
+                    '/edit'
+                  }
+                >
                   <li>Edit Location</li>
                 </Link>
-                <Link to={'/user/' + '/edit'}>
+                <Link to={'/user/edit'}>
                   <li>Delete Location</li>
                 </Link>
               </ul>
