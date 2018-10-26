@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import './Footer.css'
+import React, { Component } from 'react';
+import './Footer.css';
 
 class Footer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       img1: '/images/github_logo.png',
       img2: '/images/github_logo.png'
-    }
+    };
   }
 
   render() {
@@ -15,6 +15,7 @@ class Footer extends Component {
       <footer>
         <div>
           <a
+            target="_blank"
             className="nasa"
             href="https://www.nasa.gov/mission_pages/station/main/index.html"
           >
@@ -29,16 +30,17 @@ class Footer extends Component {
           <ul>
             <li>
               <a
+                target="_blank"
                 href="https://github.com/ortizlu"
                 onMouseEnter={() => {
                   this.setState({
                     img2: '/images/github_logo2.png'
-                  })
+                  });
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img2: '/images/github_logo.png'
-                  })
+                  });
                 }}
               >
                 <img
@@ -50,20 +52,21 @@ class Footer extends Component {
               </a>
             </li>
             <div className="x">
-              <p>x</p>
+              <p>X</p>
             </div>
             <li className="nick">
               <a
+                target="_blank"
                 href="https://github.com/ntartaro"
                 onMouseEnter={() => {
                   this.setState({
                     img1: '/images/github_logo2.png'
-                  })
+                  });
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img1: '/images/github_logo.png'
-                  })
+                  });
                 }}
               >
                 <img
@@ -77,8 +80,8 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;
