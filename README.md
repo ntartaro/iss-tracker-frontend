@@ -1,5 +1,5 @@
 #  ISS-WOW
-Where Over the World is the International Space Station? Welcome to a collaboration between me and Luis Ortiz for our General Asembly Web Development Immersive. Our site can be found at https://wow-iss.surge.sh/
+Where Over the World is the International Space Station? Welcome to a collaboration between me and Luis Ortiz for our General Assembly Web Development Immersive. Our site can be found at https://wow-iss.surge.sh/
 
 ## Home Screen
 ![](https://i.imgur.com/lo3E4xw.png)
@@ -10,12 +10,13 @@ The idea behind our site was to be able to visually track the ISS using Google M
 
 Users are able to:
 - sign up and log in with full authentication and password hashing
-- create and save location cards with titles and locations showing the visual distance to the ISS
+- edit username/password and delete user profile
+- create, edit, and delete location cards with titles and locations showing the visual distance to the ISS
 - see the current location of the ISS and the name of the city it is over, if any
 
 Future features we'd like to implement:
 - distance between saved location and ISS in miles/kilometers (in progress)
-- number of rotations and length of time untill ISS is above a specific location
+- display number of rotations and length of time until ISS is above a specific location
 
 
 ## Technologies Used
