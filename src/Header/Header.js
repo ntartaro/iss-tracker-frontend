@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
 
 class Header extends Component {
   constructor(props) {
@@ -17,6 +18,11 @@ class Header extends Component {
   }
 
   render() {
+    let name
+    if (localStorage.token) {
+      name = jwtDecode(localStorage.token).username
+    }
+    console.log(name)
     return (
       <header>
         <div className="logo">
@@ -28,8 +34,8 @@ class Header extends Component {
         <ul className="header-signup">
           {localStorage.token ? (
             <div className="flex">
-              <Link to={'/user/' + this.props.user.username}>
-                <li>Hello, {this.props.user.username}</li>
+              <Link to={'/user/' + name}>
+                <li>Hello, {name}</li>
               </Link>
               <Link to="#" onClick={this.handleLogout}>
                 <li>Logout</li>
