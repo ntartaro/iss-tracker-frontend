@@ -13,7 +13,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <div>
+        <div className='nasa-wrapper'>
           <a
             target="_blank"
             className="nasa"
@@ -30,7 +30,7 @@ class Footer extends Component {
         <div>
           <ul>
             <li>
-              <a
+              <a className='git-link'
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/ortizlu"
@@ -57,7 +57,7 @@ class Footer extends Component {
               <p>X</p>
             </div>
             <li className="nick">
-              <a
+              <a className='git-link'
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/ntartaro"

@@ -1,4 +1,4 @@
-.user-wrapper {
+.user-wrapper-2 {
   position: absolute;
   left: 15px;
   display: flex;
@@ -7,4 +7,13 @@
 
 .map-wrapper {
   align-self: center;
+}
+
+.super-delete {
+  transition: color .25s ease-in, background-color .25s ease-in;
+}
+
+.super-delete:hover {
+  background-color: #b61b1b!important;
+  color: white!important
 }
