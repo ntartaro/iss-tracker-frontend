@@ -36,6 +36,22 @@ class Userpage extends Component {
     this.userShow()
   }
 
+  deleteLocation = () => {
+    axios
+      .delete(
+        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        {
+          headers: {
+            Authorization: localStorage.token
+          }
+        }
+      )
+      .then(deletedLocation => {
+        this.props.history.push('/user/' + this.props.match.params.id)
+      })
+  }
+
+
   render() {
     return (
       <section>
@@ -92,7 +108,20 @@ class Userpage extends Component {
                         <button className="location-edit-button">EDIT</button>
                       </Link>
 
-                      <button className="location-delete-button">DELETE</button>
+                      <button className="location-delete-button" onClick={()=> {
+                            axios
+                              .delete(
+                                'http://localhost:3001/locations/' + location._id,
+                                {
+                                  headers: {
+                                    Authorization: localStorage.token
+                                  }
+                                }
+                              )
+                              .then(deletedLocation => {
+                                this.props.history.push('/user/' + this.props.match.params.id)
+                              })
+                      }}>DELETE</button>
                     </div>
                   </div>
                 </div>
