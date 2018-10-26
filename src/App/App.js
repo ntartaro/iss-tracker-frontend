@@ -173,33 +173,14 @@ class App extends Component {
     }
   }
 
-  userUpdate = (id, updatedUser) => {
-    axios
-      .put('http://localhost:3001/users/' + id, updatedUser, {
-        headers: {
-          Authorization: localStorage.token
-        }
-      })
-      .then(response => {
-        console.log('token should be gone!')
-        this.setState({
-          username: '',
-          password: '',
-          isLoggedIn: false
-        })
-        localStorage.clear()
-        this.forceUpdate()
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-
   render() {
     return (
       <div>
         <main>
-          <Header handleLogOut={this.handleLogOut} user={this.state.user} />
+          <Header
+            handleLogOut={this.handleLogOut}
+            isLoggedIn={this.state.isLoggedIn}
+          />
           <Switch>
             <Route
               path="/user/:id/location/:locationid/edit"
@@ -227,7 +208,6 @@ class App extends Component {
                 <UserSettings
                   {...props}
                   user={this.state.user}
-                  userUpdate={this.userUpdate}
                   handleLogOut={this.handleLogOut}
                 />
               )}
