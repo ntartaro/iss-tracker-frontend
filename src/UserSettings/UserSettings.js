@@ -64,14 +64,17 @@ class UserSettings extends Component {
             />
           </form>
           <div className="update-button-wrapper">
+          <div className='logout-warning'>
             <button onClick={this.handleSubmit} className="update-user-button">
               UPDATE
             </button>
-            <div className="warning">
+            <p className="update-text">This will log you out!</p>
+            </div>
+            <div className="delete-warning">
               <button className="delete-user-button" onClick={this.deleteUser}>
                 DELETE USER
               </button>
-              <p className="warning-text">Are you sure?</p>
+              <p className="delete-text">Are you sure?</p>
             </div>
           </div>
         </div>

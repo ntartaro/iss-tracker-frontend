@@ -60,7 +60,7 @@
 .update-user-button {
   font-size: 16px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   border-radius: 5px;
   border: 1px solid white;
   background-color: #202124;
@@ -95,13 +95,23 @@
     color: #b61b1b;
 }
 
-.delete-user-button:hover + .warning-text {
+.delete-user-button:hover + .delete-text {
     color: #b61b1b;
 }
 
-.warning p {
+.delete-warning p {
     margin-left: 15px;
     text-align: center;
     color: #202124;
     transition: color 0.25s ease-in;
+}
+
+.logout-warning p {
+  text-align: center;
+  color: #202124;
+  transition: color 0.25s ease-in;
+}
+
+.update-user-button:hover + .update-text {
+  color: white;
 }

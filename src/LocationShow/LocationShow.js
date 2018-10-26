@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import './LocationShow.css'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import './LocationShow.css';
 
 class LocationShow extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       zoom: 4,
       maptype: 'roadmap',
@@ -15,8 +15,36 @@ class LocationShow extends Component {
         title: '',
         location: ''
       }
-    }
+    };
   }
+
+  zoomOut = () => {
+    if (this.state.zoom <= 1) {
+      return;
+    }
+    this.setState({ zoom: this.state.zoom - 1 });
+  };
+
+  zoomIn = () => {
+    if (this.state.zoom >= 20) {
+      return;
+    }
+    this.setState({ zoom: this.state.zoom + 1 });
+  };
+
+  mapSatellite = () => {
+    if (this.state.maptype === 'hybrid') {
+      return;
+    }
+    this.setState({ maptype: 'hybrid' });
+  };
+
+  mapDefault = () => {
+    if (this.state.maptype === 'roadmap') {
+      return;
+    }
+    this.setState({ maptype: 'roadmap' });
+  };
 
   getInfo = () => {
     axios
@@ -34,64 +62,38 @@ class LocationShow extends Component {
             title: response.data.title,
             location: response.data.location
           }
-        })
+        });
       })
-  }
-
-  zoomOut = () => {
-    if (this.state.zoom <= 1) {
-      return
-    }
-    this.setState({ zoom: this.state.zoom - 1 })
-  }
-
-  zoomIn = () => {
-    if (this.state.zoom >= 20) {
-      return
-    }
-    this.setState({ zoom: this.state.zoom + 1 })
-  }
-
-  mapSatellite = () => {
-    if (this.state.maptype === 'hybrid') {
-      return
-    }
-    this.setState({ maptype: 'hybrid' })
-  }
-
-  mapDefault = () => {
-    if (this.state.maptype === 'roadmap') {
-      return
-    }
-    this.setState({ maptype: 'roadmap' })
-  }
+      .then(_ => this.fetchISS());
+  };
 
   fetchISS = () => {
-    axios.get('http://api.open-notify.org/iss-now.json').then(response => {
-      this.setState({
-        currentlat: response.data.iss_position.latitude,
-        currentlong: response.data.iss_position.longitude
+    axios
+      .get('http://api.open-notify.org/iss-now.json')
+      .then(response => {
+        this.setState({
+          currentlat: response.data.iss_position.latitude,
+          currentlong: response.data.iss_position.longitude
+        });
       })
-    })
-  }
+      .then(_ => this.getDistance());
+  };
 
-  // getDistance = () => {
-  //   console.log('front distance')
-  //   axios.get('localhost:3001/locations/api')
-  //     // .get('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
-  //       // 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' +
-  //       //   this.state.locationInfo.location +
-  //       //   '&destinations=' +
-  //       //   this.currentlat +
-  //       //   ',' +
-  //       //   this.currentlong +
-  //       //   '&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo',
-  //       //   { headers: { crossDomain: true, 'Content-Type': 'application/json'}}
-  //     // )
-  //     .then(response => {
-  //       console.log(response);
-  //     });
-  // };
+  getDistance = () => {
+    axios
+      .get(
+        'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' +
+          this.state.locationInfo.location +
+          '&destinations=' +
+          this.state.currentlat +
+          ',' +
+          this.state.currentlong +
+          '&key=AIzaSyDGpcbl_iqDQvUb-qa_-r1nh3In4QXL-xo'
+      )
+      .then(response => {
+        console.log(response);
+      });
+  };
 
   deleteLocation = () => {
     axios
@@ -104,14 +106,18 @@ class LocationShow extends Component {
         }
       )
       .then(deletedLocation => {
-        this.props.history.push('/user/' + this.props.match.params.id)
-      })
-  }
+        this.props.history.push('/user/' + this.props.match.params.id);
+      });
+  };
 
   componentDidMount() {
-    this.getInfo()
-    this.fetchISS()
-    // this.getDistance();
+    this.getInfo();
+
+    // console.log(this.state);
+    // console.log(this.state.locationInfo.location);
+    // console.log(this.currentlat);
+    // console.log(this.currentlang);
+    // console.log(this.state.locationInfo.title);
   }
 
   render() {
@@ -190,8 +196,8 @@ class LocationShow extends Component {
           </button>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default LocationShow
+export default LocationShow;
