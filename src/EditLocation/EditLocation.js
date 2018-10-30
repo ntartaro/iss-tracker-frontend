@@ -25,7 +25,7 @@ class EditLocation extends Component {
     e.preventDefault()
     axios
       .put(
-        'https://localhost:3001/locations/' + this.props.match.params.locationid,
+        'http://localhost:3001/locations/' + this.props.match.params.locationid,
         {
           title: this.state.updatedTitle,
           location: this.state.updatedLocation

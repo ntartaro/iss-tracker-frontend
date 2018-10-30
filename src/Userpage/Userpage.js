@@ -19,7 +19,7 @@ class Userpage extends Component {
     let userid = jwtDecode(localStorage.token).id;
     if (localStorage.token) {
       axios
-        .get('https://localhost:3001/users/' + userid, {
+        .get('http://localhost:3001/users/' + userid, {
           headers: {
             Authorization: localStorage.token
           }
@@ -34,7 +34,7 @@ class Userpage extends Component {
 
   deleteLocation = location => {
     axios
-      .delete('https://localhost:3001/locations/' + location, {
+      .delete('http://localhost:3001/locations/' + location, {
         headers: {
           Authorization: localStorage.token
         }
