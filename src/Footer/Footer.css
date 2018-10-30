@@ -55,12 +55,12 @@ footer .x {
 .nasa-wrapper {
   width: 28px;
   height: 28px;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   /* box-shadow: 0px 0px 22px white ; */
-transition: box-shadow .25s ease-in;
+  transition: box-shadow 0.25s ease-in;
 }
 
 .git-link {
@@ -73,10 +73,10 @@ transition: box-shadow .25s ease-in;
 }
 
 .nasa-wrapper:hover {
-  box-shadow: 0px 0px 25px white ;
+  box-shadow: 0px 0px 25px white;
 }
 
 .git-link:hover {
-background: white;
-  color: #202124; 
+  background: white;
+  color: #202124;
 }

@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import './Footer.css'
+import React, { Component } from 'react';
+import './Footer.css';
 
 class Footer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       img1: '/images/github_logo.png',
       img2: '/images/github_logo.png'
-    }
+    };
   }
 
   render() {
     return (
       <footer>
-        <div className='nasa-wrapper'>
+        <div className="nasa-wrapper">
           <a
             target="_blank"
             className="nasa"
@@ -29,20 +29,24 @@ class Footer extends Component {
         </div>
         <div>
           <ul>
+            <div className="x">
+              <p>created by: </p>
+            </div>
             <li>
-              <a className='git-link'
+              <a
+                className="git-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/ortizlu"
                 onMouseEnter={() => {
                   this.setState({
                     img2: '/images/github_logo2.png'
-                  })
+                  });
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img2: '/images/github_logo.png'
-                  })
+                  });
                 }}
               >
                 <img
@@ -57,19 +61,20 @@ class Footer extends Component {
               <p>X</p>
             </div>
             <li className="nick">
-              <a className='git-link'
+              <a
+                className="git-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://github.com/ntartaro"
                 onMouseEnter={() => {
                   this.setState({
                     img1: '/images/github_logo2.png'
-                  })
+                  });
                 }}
                 onMouseLeave={() => {
                   this.setState({
                     img1: '/images/github_logo.png'
-                  })
+                  });
                 }}
               >
                 <img
@@ -83,8 +88,8 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;
