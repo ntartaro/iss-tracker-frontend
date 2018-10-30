@@ -25,7 +25,7 @@ class UserSettings extends Component {
     if (localStorage.token) {
       axios
         .put(
-          'http://localhost:3001/users/' + this.state.currentId,
+          'https://localhost:3001/users/' + this.state.currentId,
           {
             username: this.state.username,
             password: this.state.password
@@ -52,7 +52,7 @@ class UserSettings extends Component {
   deleteUser = () => {
     if (localStorage.token) {
       axios
-        .delete('http://localhost:3001/users/' + this.state.currentId, {
+        .delete('https://localhost:3001/users/' + this.state.currentId, {
           headers: {
             Authorization: localStorage.token
           }

@@ -13,7 +13,7 @@ class NewLocation extends Component {
   createLocation = e => {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/locations/', this.state, {
+      .post('https://localhost:3001/locations/', this.state, {
         headers: {
           Authorization: localStorage.token
         }

@@ -54,7 +54,7 @@ class LocationShow extends Component {
   getInfo = () => {
     axios
       .get(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://localhost:3001/locations/' + this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token
@@ -74,7 +74,7 @@ class LocationShow extends Component {
 
   fetchISSCoordinates = () => {
     axios
-      .get('http://api.open-notify.org/iss-now.json')
+      .get('https://api.open-notify.org/iss-now.json')
       .then(response => {
         this.setState({
           ISSlat: response.data.iss_position.latitude,
@@ -132,7 +132,7 @@ class LocationShow extends Component {
   deleteLocation = () => {
     axios
       .delete(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://localhost:3001/locations/' + this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token

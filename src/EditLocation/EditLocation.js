@@ -25,7 +25,7 @@ class EditLocation extends Component {
     e.preventDefault()
     axios
       .put(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://localhost:3001/locations/' + this.props.match.params.locationid,
         {
           title: this.state.updatedTitle,
           location: this.state.updatedLocation
@@ -52,7 +52,7 @@ class EditLocation extends Component {
   componentDidMount() {
     axios
       .get(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        'https://localhost:3001/locations/' + this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token

@@ -35,7 +35,13 @@ class App extends Component {
     }
   }
 
+  shouldComponentUpdate() {
+    console.log('here')
+    return true
+  }
+
   componentDidMount() {
+    // console.log('here')
     this.changeMessage('')
     //checking to see if there is a user currently logged in
     if (localStorage.token) {
@@ -54,7 +60,7 @@ class App extends Component {
 
   fetchISS = () => {
     axios
-      .get('http://api.open-notify.org/iss-now.json')
+      .get('https://api.open-notify.org/iss-now.json')
       .then(response =>
         this.setState({
           currentlat: response.data.iss_position.latitude,
@@ -99,7 +105,7 @@ class App extends Component {
   handleSignUp = () => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
-      .post('http://localhost:3001/users/signup', {
+      .post('https://localhost:3001/users/signup', {
         username: this.state.username,
         password: this.state.password
       })
@@ -118,7 +124,7 @@ class App extends Component {
 
   handleLogin = e => {
     axios
-      .post('http://localhost:3001/users/login', {
+      .post('https://localhost:3001/users/login', {
         username: this.state.username,
         password: this.state.password
       })
@@ -158,7 +164,7 @@ class App extends Component {
     if (localStorage.token) {
       id = jwtDecode(localStorage.token).id
       axios
-        .get('http://localhost:3001/users/' + id, {
+        .get('https://localhost:3001/users/' + id, {
           headers: {
             Authorization: localStorage.token
           }
