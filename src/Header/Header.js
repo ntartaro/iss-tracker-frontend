@@ -22,7 +22,6 @@ class Header extends Component {
     if (localStorage.token) {
       name = jwtDecode(localStorage.token).username
     }
-    console.log(name)
     return (
       <header>
         <div className="logo">
