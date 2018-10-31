@@ -22,7 +22,8 @@ class NewLocation extends Component {
         console.log('new location created');
         this.props.history.push('/user/' + this.props.user.username);
         this.props.userShow();
-      }).catch(err => console.log(err))
+      })
+      .catch(err => console.log(err));
   };
 
   changeText = e => {
@@ -33,30 +34,33 @@ class NewLocation extends Component {
 
   render() {
     return (
-      <section className="newlocation-wrapper">
-        <div className="newlocation-top">
-          <p>New Location</p>
+      <section className="edit-form-wrapper">
+        <div className="edit-form-top">
+          <p className='edit-form-title'>New Location</p>
         </div>
-        <div className="newlocation-main">
-          <form
-            className="newlocation-main-wrapper"
-            // onSubmit={this.createLocation}
-          >
-            <label htmlFor="title">Title:</label>
+        <div className="edit-form-main">
+          <form className="edit-form-form">
+            <label htmlFor="title" className="new-location-label">
+              Title:
+            </label>
             <input
+              className="new-location-input"
               type="text"
               name="title"
               value={this.state.title}
               onChange={this.changeText}
             />
-            <label htmlFor="location">Location (Coordinates or Address):</label>
+            <label htmlFor="location" className="new-location-label">
+              Location (Coordinates or Address):
+            </label>
             <input
+              className="new-location-input"
               type="text"
               name="location"
               value={this.state.location}
               onChange={this.changeText}
             />
-            <div className="create-button-wrapper">
+            <div className="new-location-button-wrapper">
               <button className="create-button" onClick={this.createLocation}>
                 CREATE
               </button>

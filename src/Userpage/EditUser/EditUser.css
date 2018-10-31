@@ -1,4 +1,4 @@
-.settings-wrapper {
+.edit-form-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin-top: 150px;
 }
 
-.settings-top {
+.edit-form-top {
   text-align: center;
   padding-top: 15px;
   width: 550px;
@@ -15,13 +15,13 @@
   border-top-right-radius: 8px;
 }
 
-.settings-top p {
+.edit-form-title {
   color: #202124;
   margin-bottom: 15px;
   font-size: 30px;
 }
 
-.settings-main {
+.edit-form-main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,25 +33,25 @@
   border-bottom-right-radius: 8px;
 }
 
-.settings-main-wrapper {
+.edit-form-form {
   display: flex;
   flex-direction: column;
 }
 
-.settings-main label {
+.edit-user-label {
   text-align: center;
   font-size: 15px;
   margin: 10px;
   color: white;
 }
 
-.settings-main input {
+.edit-user-input {
   border-radius: 3px;
   margin: 3px;
   width: 270px;
 }
 
-.update-button-wrapper {
+.edit-user-button-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,34 +76,34 @@
 }
 
 .delete-user-button {
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 4px;
-    border-radius: 5px;
-    border: 1px solid #b61b1b;
-    color: #202124;
-    background-color: #b61b1b;
-    height: 40px;
-    width: 150px;
-    transition: background-color 0.25s ease-in, color 0.25s ease-in;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  border: 1px solid #b61b1b;
+  color: #202124;
+  background-color: #b61b1b;
+  height: 40px;
+  width: 150px;
+  transition: background-color 0.25s ease-in, color 0.25s ease-in;
 }
 
 .delete-user-button:hover {
-    background-color: #202124;
-    color: #b61b1b;
+  background-color: #202124;
+  color: #b61b1b;
 }
 
 .delete-user-button:hover + .delete-text {
-    color: #b61b1b;
+  color: #b61b1b;
 }
 
 .delete-warning p {
-    margin-left: 15px;
-    text-align: center;
-    color: #202124;
-    transition: color 0.25s ease-in;
+  margin-left: 15px;
+  text-align: center;
+  color: #202124;
+  transition: color 0.25s ease-in;
 }
 
 .logout-warning p {

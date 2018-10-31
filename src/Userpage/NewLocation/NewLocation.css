@@ -1,4 +1,4 @@
-.newlocation-wrapper {
+.edit-form-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin-top: 150px;
 }
 
-.newlocation-top {
+.edit-form-top {
   text-align: center;
   padding-top: 15px;
   width: 550px;
@@ -15,13 +15,13 @@
   border-top-right-radius: 8px;
 }
 
-.newlocation-top p {
+.edit-form-title {
   color: #202124;
   margin-bottom: 15px;
   font-size: 30px;
 }
 
-.newlocation-main {
+.edit-form-main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,25 +33,25 @@
   border-bottom-right-radius: 8px;
 }
 
-.newlocation-main-wrapper {
+.edit-form-form {
   display: flex;
   flex-direction: column;
 }
 
-.newlocation-main label {
+.new-location-label {
   text-align: center;
   font-size: 15px;
   margin: 10px;
   color: white;
 }
 
-.newlocation-main input {
+.new-location-input {
   border-radius: 3px;
   margin: 3px;
   width: 270px;
 }
 
-.create-button-wrapper {
+.new-location-button-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;

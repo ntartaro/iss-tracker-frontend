@@ -71,35 +71,37 @@ class EditLocation extends Component {
 
   render() {
     return (
-      <section className="editlocation-wrapper">
-        <div className="editlocation-top">
-          <p>Edit Location</p>
+      <section className="edit-form-wrapper">
+        <div className="edit-form-top">
+          <p className='edit-form-title'>Edit Location</p>
         </div>
-        <div className="editlocation-main">
+        <div className="edit-form-main">
           <form
-            className="editlocation-main-wrapper"
+            className="edit-form-form"
             onSubmit={this.handleSubmit}
           >
-            <label htmlFor="updatedTitle">Title:</label>
+            <label htmlFor="updatedTitle" className='edit-location-label'>Title:</label>
             <input
+            className='edit-location-input'
               type="text"
               name="updatedTitle"
               placeholder={this.state.locationInfo.title}
               value={this.state.updatedTitle}
               onChange={this.textChange}
             />
-            <label htmlFor="updatedLocation">
+            <label htmlFor="updatedLocation" className='edit-location-label'>
               Location (Coordinates or Address):
             </label>
             <input
+            className='edit-location-input'
               type="text"
               name="updatedLocation"
               placeholder={this.state.locationInfo.location}
               value={this.state.updatedLocation}
               onChange={this.textChange}
             />
-            <div className="create-button-wrapper">
-              <button className="create-button">EDIT</button>
+            <div className="edit-location-button-wrapper">
+              <button className="edit-button">EDIT</button>
             </div>
           </form>
         </div>

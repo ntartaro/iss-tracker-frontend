@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './LocationShow.css';
+import './ShowLocation.css';
 
-class LocationShow extends Component {
+class ShowLocation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -230,4 +230,4 @@ class LocationShow extends Component {
   }
 }
 
-export default LocationShow;
+export default ShowLocation;

@@ -4,16 +4,16 @@ import './App.css'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import { withRouter } from 'react-router-dom'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from '../Home/Header/Header'
+import Footer from '../Home/Footer/Footer'
 import Home from '../Home/Home'
-import Signup from '../Signup/Signup'
-import Login from '../Login/Login'
+import Signup from '../Home/Signup/Signup'
+import Login from '../Home/Login/Login'
 import Userpage from '../Userpage/Userpage'
-import UserSettings from '../UserSettings/UserSettings'
-import NewLocation from '../NewLocation/NewLocation'
-import EditLocation from '../EditLocation/EditLocation'
-import LocationShow from '../LocationShow/LocationShow'
+import EditUser from '../Userpage/EditUser/EditUser'
+import NewLocation from '../Userpage/NewLocation/NewLocation'
+import EditLocation from '../Userpage/EditLocation/EditLocation'
+import ShowLocation from '../Userpage/ShowLocation/ShowLocation'
 
 class App extends Component {
   constructor() {
@@ -200,12 +200,12 @@ class App extends Component {
             />
             <Route
               path="/user/:id/location/:locationid"
-              render={props => <LocationShow {...props} />}
+              render={props => <ShowLocation {...props} />}
             />
             <Route
               path="/user/:id/edit"
               render={props => (
-                <UserSettings
+                <EditUser
                   {...props}
                   user={this.state.user}
                   handleLogOut={this.handleLogOut}
