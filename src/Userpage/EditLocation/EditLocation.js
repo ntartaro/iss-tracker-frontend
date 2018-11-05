@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './EditLocation.css';
 import axios from 'axios';
-import url from '../url.js';
+import url from '../../url.js';
 
 class EditLocation extends Component {
   constructor(props) {

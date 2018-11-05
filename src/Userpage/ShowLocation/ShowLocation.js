@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ShowLocation.css';
-import url from '../url.js';
+import url from '../../url.js';
 
 class ShowLocation extends Component {
   constructor(props) {

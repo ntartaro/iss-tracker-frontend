@@ -3,7 +3,7 @@ import './Userpage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import url from '../url'
+import url from '../url.js'
 
 class Userpage extends Component {
   constructor(props) {
