@@ -3,6 +3,7 @@ import './Userpage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import url from '../url'
 
 class Userpage extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Userpage extends Component {
     let userid = jwtDecode(localStorage.token).id;
     if (localStorage.token) {
       axios
-        .get('http://localhost:3001/users/' + userid, {
+        .get(url + 'users' + userid, {
           headers: {
             Authorization: localStorage.token
           }
@@ -34,7 +35,7 @@ class Userpage extends Component {
 
   deleteLocation = location => {
     axios
-      .delete('http://localhost:3001/locations/' + location, {
+      .delete(url + 'locations' + location, {
         headers: {
           Authorization: localStorage.token
         }

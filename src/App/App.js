@@ -1,23 +1,24 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import './App.css'
-import axios from 'axios'
-import jwtDecode from 'jwt-decode'
-import { withRouter } from 'react-router-dom'
-import Header from '../Home/Header/Header'
-import Footer from '../Home/Footer/Footer'
-import Home from '../Home/Home'
-import Signup from '../Home/Signup/Signup'
-import Login from '../Home/Login/Login'
-import Userpage from '../Userpage/Userpage'
-import EditUser from '../Userpage/EditUser/EditUser'
-import NewLocation from '../Userpage/NewLocation/NewLocation'
-import EditLocation from '../Userpage/EditLocation/EditLocation'
-import ShowLocation from '../Userpage/ShowLocation/ShowLocation'
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import { withRouter } from 'react-router-dom';
+import Header from '../Home/Header/Header';
+import Footer from '../Home/Footer/Footer';
+import Home from '../Home/Home';
+import Signup from '../Home/Signup/Signup';
+import Login from '../Home/Login/Login';
+import Userpage from '../Userpage/Userpage';
+import EditUser from '../Userpage/EditUser/EditUser';
+import NewLocation from '../Userpage/NewLocation/NewLocation';
+import EditLocation from '../Userpage/EditLocation/EditLocation';
+import ShowLocation from '../Userpage/ShowLocation/ShowLocation';
+import url from '../url.js';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       error: false,
@@ -32,29 +33,29 @@ class App extends Component {
         username: '',
         savedLocations: []
       }
-    }
+    };
   }
 
   componentDidMount() {
-    this.changeMessage('')
+    this.changeMessage('');
     //checking to see if there is a user currently logged in
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true
-      })
+      });
     } else {
       this.setState({
         isLoggedIn: false
-      })
+      });
     }
     //fetches the ISS image
-    this.fetchISS()
-    this.userShow()
+    this.fetchISS();
+    this.userShow();
   }
 
   fetchISS = () => {
     axios
-      .get('http://api.open-notify.org/iss-now.json')
+      .get(url + 'getiss')
       .then(response =>
         this.setState({
           currentlat: response.data.iss_position.latitude,
@@ -62,9 +63,9 @@ class App extends Component {
         })
       )
       .then(_ => {
-        this.fetchCityCountry()
-      })
-  }
+        this.fetchCityCountry();
+      });
+  };
 
   //fetches the city and country and if found, displays it, otherwise
   //displays over the ocean
@@ -79,65 +80,63 @@ class App extends Component {
         if (response.data.plus_code.compound_code) {
           this.setState({
             city: response.data.plus_code.compound_code.substring(8)
-          })
+          });
         } else {
           this.setState({
             city: ''
-          })
+          });
         }
-      })
-  }
+      });
+  };
 
   //handleInput gets the name from the input, and changes the state of the target's name to be the value of the target. For example, if the user is currently writing on the username input, our onChange will trigger this function, and will update our state above since the name of the input (name="username" in the form component) and the name of the state (username: '' in app.js) are the same
   handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   //this function first prevents default of the button (either in signup or login)
   handleSignUp = () => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
-      .post(//'http://localhost:3001/users/signup'
-      'https://issdb.herokuapp.com/users/signup', {
+      .post(url + 'users/signup', {
         username: this.state.username,
         password: this.state.password
       })
       //our token is stored and loggedIn is changed to true
       .then(response => {
-        localStorage.token = response.data.token
-        this.setState({ isLoggedIn: true, errormsg: '' })
-        this.props.history.push('/')
+        localStorage.token = response.data.token;
+        this.setState({ isLoggedIn: true, errormsg: '' });
+        this.props.history.push('/');
       })
       .catch(err => {
         this.setState({
           errormsg: 'Username taken.'
-        })
-      })
-  }
+        });
+      });
+  };
 
   handleLogin = e => {
     axios
-      .post(//'http://localhost:3001/users/login'
-      'https://issdb.herokuapp.com/users/login', {
+      .post(url + 'users/login', {
         username: this.state.username,
         password: this.state.password
       })
       .then(response => {
-        localStorage.token = response.data.token
+        localStorage.token = response.data.token;
         this.setState({
           isLoggedIn: true,
           errormsg: ''
-        })
-        this.props.history.push('/')
+        });
+        this.props.history.push('/');
       })
       .catch(err => {
         this.setState({
           errormsg: 'Wrong username/password.'
-        })
-      })
-  }
+        });
+      });
+  };
 
   handleLogOut = () => {
     //we're setting everything back to default and clearing the local storage so it doesn't keep track of user
@@ -145,23 +144,22 @@ class App extends Component {
       username: '',
       password: '',
       isLoggedIn: false
-    })
-    localStorage.clear()
-  }
+    });
+    localStorage.clear();
+  };
 
   changeMessage = msg => {
     this.setState({
       errormsg: msg
-    })
-  }
+    });
+  };
 
   userShow = () => {
-    let id
+    let id;
     if (localStorage.token) {
-      id = jwtDecode(localStorage.token).id
+      id = jwtDecode(localStorage.token).id;
       axios
-        .get(//'http://localhost:3001/users/'
-        'https://issdb.herokuapp.com/users' + id, {
+        .get(url + 'users' + id, {
           headers: {
             Authorization: localStorage.token
           }
@@ -169,12 +167,12 @@ class App extends Component {
         .then(response => {
           this.setState({
             user: response.data
-          })
-        })
+          });
+        });
     } else {
-      console.log("you're not logged in")
+      console.log("you're not logged in");
     }
-  }
+  };
 
   render() {
     return (
@@ -218,7 +216,7 @@ class App extends Component {
             <Route
               path="/user/:id"
               render={props => {
-                return <Userpage {...props} />
+                return <Userpage {...props} />;
               }}
             />
             <Route
@@ -268,8 +266,8 @@ class App extends Component {
           <Footer />
         </main>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(App)
+export default withRouter(App);

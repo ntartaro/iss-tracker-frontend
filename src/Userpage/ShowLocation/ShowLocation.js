@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ShowLocation.css';
+import url from '../url.js';
 
 class ShowLocation extends Component {
   constructor(props) {
@@ -53,15 +54,11 @@ class ShowLocation extends Component {
 
   getInfo = () => {
     axios
-      .get(
-        // 'http://localhost:3001/locations/'
-        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
-        {
-          headers: {
-            Authorization: localStorage.token
-          }
+      .get(url + 'locations/' + this.props.match.params.locationid, {
+        headers: {
+          Authorization: localStorage.token
         }
-      )
+      })
       .then(response => {
         this.setState({
           userLocationInfo: {
@@ -75,7 +72,7 @@ class ShowLocation extends Component {
 
   fetchISSCoordinates = () => {
     axios
-      .get('http://api.open-notify.org/iss-now.json')
+      .get('https://issdb.herokuapp.com/getiss')
       .then(response => {
         this.setState({
           ISSlat: response.data.iss_position.latitude,
@@ -113,7 +110,7 @@ class ShowLocation extends Component {
     };
 
     // var R = 6371;    // Earth’s mean radius in kilometer
-    var R = 3959;       // Earth's mean radius in miles
+    var R = 3959; // Earth's mean radius in miles
     var dLat = rad(p2lat - p1lat);
     var dLong = rad(p2long - p1long);
     var a =
@@ -124,23 +121,19 @@ class ShowLocation extends Component {
         Math.sin(dLong / 2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c;
-    console.log(Math.round(d)); 
+    console.log(Math.round(d));
     this.setState({
       distanceBetween: Math.round(d)
-    })
+    });
   };
 
   deleteLocation = () => {
     axios
-      .delete(
-        // 'http://localhost:3001/locations/'
-        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
-        {
-          headers: {
-            Authorization: localStorage.token
-          }
+      .delete(url + 'locations/' + this.props.match.params.locationid, {
+        headers: {
+          Authorization: localStorage.token
         }
-      )
+      })
       .then(deletedLocation => {
         this.props.history.push('/user/' + this.props.match.params.id);
       });
@@ -154,7 +147,10 @@ class ShowLocation extends Component {
     return (
       <div className="home">
         <h1>How Far is My Location From the ISS?</h1>
-        <h2>{this.state.userLocationInfo.title} is about {this.state.distanceBetween} miles away</h2>
+        <h2>
+          {this.state.userLocationInfo.title} is about{' '}
+          {this.state.distanceBetween} miles away
+        </h2>
         <div className="distance-wrapper">
           <div className="user-wrapper-2">
             <div className="user-settings">

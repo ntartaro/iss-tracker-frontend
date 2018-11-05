@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import './EditLocation.css'
-import axios from 'axios'
+import React, { Component } from 'react';
+import './EditLocation.css';
+import axios from 'axios';
+import url from '../url.js';
 
 class EditLocation extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       updatedTitle: '',
       updatedLocation: '',
@@ -12,21 +13,20 @@ class EditLocation extends Component {
         title: '',
         location: ''
       }
-    }
+    };
   }
 
   textChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     axios
       .put(
-        //'http://localhost:3001/locations/'
-        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
+        url + 'locations/' + this.props.match.params.locationid,
         {
           title: this.state.updatedTitle,
           location: this.state.updatedLocation
@@ -43,59 +43,54 @@ class EditLocation extends Component {
             this.props.match.params.id +
             '/location/' +
             this.props.match.params.locationid
-        )
+        );
       })
       .catch(error => {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 
   componentDidMount() {
     axios
-      .get(
-        //'https://localhost:3001/locations/'
-        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
-        {
-          headers: {
-            Authorization: localStorage.token
-          }
+      .get(url + 'locations/' + this.props.match.params.locationid, {
+        headers: {
+          Authorization: localStorage.token
         }
-      )
+      })
       .then(response => {
         this.setState({
           locationInfo: {
             title: response.data.title,
             location: response.data.location
           }
-        })
-      })
+        });
+      });
   }
 
   render() {
     return (
       <section className="edit-form-wrapper">
         <div className="edit-form-top">
-          <p className='edit-form-title'>Edit Location</p>
+          <p className="edit-form-title">Edit Location</p>
         </div>
         <div className="edit-form-main">
-          <form
-            className="edit-form-form"
-            onSubmit={this.handleSubmit}
-          >
-            <label htmlFor="updatedTitle" className='edit-location-label'>Title:</label>
+          <form className="edit-form-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="updatedTitle" className="edit-location-label">
+              Title:
+            </label>
             <input
-            className='edit-location-input'
+              className="edit-location-input"
               type="text"
               name="updatedTitle"
               placeholder={this.state.locationInfo.title}
               value={this.state.updatedTitle}
               onChange={this.textChange}
             />
-            <label htmlFor="updatedLocation" className='edit-location-label'>
+            <label htmlFor="updatedLocation" className="edit-location-label">
               Location (Coordinates or Address):
             </label>
             <input
-            className='edit-location-input'
+              className="edit-location-input"
               type="text"
               name="updatedLocation"
               placeholder={this.state.locationInfo.location}
@@ -108,8 +103,8 @@ class EditLocation extends Component {
           </form>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default EditLocation
+export default EditLocation;

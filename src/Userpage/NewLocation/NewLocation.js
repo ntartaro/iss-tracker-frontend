@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NewLocation.css';
 import axios from 'axios';
+import url from '../url.js'
 
 class NewLocation extends Component {
   constructor(props) {
@@ -13,8 +14,7 @@ class NewLocation extends Component {
   createLocation = e => {
     e.preventDefault();
     axios
-      .post( //'http://localhost:3001/locations/'
-        'https://issdb.herokuapp.com/locations/', this.state, {
+      .post(url + 'locations/', this.state, {
         headers: {
           Authorization: localStorage.token
         }
@@ -37,7 +37,7 @@ class NewLocation extends Component {
     return (
       <section className="edit-form-wrapper">
         <div className="edit-form-top">
-          <p className='edit-form-title'>New Location</p>
+          <p className="edit-form-title">New Location</p>
         </div>
         <div className="edit-form-main">
           <form className="edit-form-form">
