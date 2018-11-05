@@ -54,7 +54,8 @@ class ShowLocation extends Component {
   getInfo = () => {
     axios
       .get(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        // 'http://localhost:3001/locations/'
+        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token
@@ -132,7 +133,8 @@ class ShowLocation extends Component {
   deleteLocation = () => {
     axios
       .delete(
-        'http://localhost:3001/locations/' + this.props.match.params.locationid,
+        // 'http://localhost:3001/locations/'
+        'https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
         {
           headers: {
             Authorization: localStorage.token

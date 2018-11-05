@@ -25,7 +25,8 @@ class EditUser extends Component {
     if (localStorage.token) {
       axios
         .put(
-          'http://localhost:3001/users/' + this.state.currentId,
+          //'http://localhost:3001/users/'
+          'https://issdb.herokuapp.com/users/' + this.state.currentId,
           {
             username: this.state.username,
             password: this.state.password
@@ -52,7 +53,8 @@ class EditUser extends Component {
   deleteUser = () => {
     if (localStorage.token) {
       axios
-        .delete('http://localhost:3001/users/' + this.state.currentId, {
+        .delete( //'http://localhost:3001/users/'
+          'https://issdb.herokuapp.com/users/' + this.state.currentId, {
           headers: {
             Authorization: localStorage.token
           }
