@@ -55,7 +55,7 @@ class App extends Component {
 
   fetchISS = () => {
     axios
-      .get(url + 'getiss')
+      .get('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json')
       .then(response =>
         this.setState({
           currentlat: response.data.iss_position.latitude,
