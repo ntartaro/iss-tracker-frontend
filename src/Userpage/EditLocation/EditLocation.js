@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './EditLocation.css';
 import axios from 'axios';
-import url from '../../url.js';
 
 class EditLocation extends Component {
   constructor(props) {
@@ -25,8 +24,7 @@ class EditLocation extends Component {
   handleSubmit = e => {
     e.preventDefault();
     axios
-      .put(
-        url + 'locations/' + this.props.match.params.locationid,
+      .put('https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid,
         {
           title: this.state.updatedTitle,
           location: this.state.updatedLocation
@@ -52,7 +50,7 @@ class EditLocation extends Component {
 
   componentDidMount() {
     axios
-      .get(url + 'locations/' + this.props.match.params.locationid, {
+      .get('https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid, {
         headers: {
           Authorization: localStorage.token
         }

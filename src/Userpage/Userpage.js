@@ -3,7 +3,6 @@ import './Userpage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import url from '../url.js'
 
 class Userpage extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class Userpage extends Component {
     let userid = jwtDecode(localStorage.token).id;
     if (localStorage.token) {
       axios
-        .get(url + 'users' + userid, {
+        .get('https://issdb.herokuapp.com/users/' + userid, {
           headers: {
             Authorization: localStorage.token
           }
@@ -35,7 +34,7 @@ class Userpage extends Component {
 
   deleteLocation = location => {
     axios
-      .delete(url + 'locations' + location, {
+      .delete('https://issdb.herokuapp.com/locations' + location, {
         headers: {
           Authorization: localStorage.token
         }
@@ -78,7 +77,6 @@ class Userpage extends Component {
           </div>
           <div className="location-wrapper">
             {this.state.user.savedLocations.map(location => {
-              console.log(location);
               return (
                 <div key={location._id} className="location-card">
                   <Link

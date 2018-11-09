@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './NewLocation.css';
 import axios from 'axios';
-import url from '../../url.js'
 
 class NewLocation extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class NewLocation extends Component {
   createLocation = e => {
     e.preventDefault();
     axios
-      .post(url + 'locations/', this.state, {
+      .post('https://issdb.herokuapp.com/locations/', this.state, {
         headers: {
           Authorization: localStorage.token
         }

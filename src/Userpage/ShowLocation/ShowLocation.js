@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ShowLocation.css';
-import url from '../../url.js';
 
 class ShowLocation extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class ShowLocation extends Component {
 
   getInfo = () => {
     axios
-      .get(url + 'locations/' + this.props.match.params.locationid, {
+      .get('https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid, {
         headers: {
           Authorization: localStorage.token
         }
@@ -67,22 +66,24 @@ class ShowLocation extends Component {
           }
         });
       })
-      .then(_ => this.fetchISSCoordinates());
+      .then(_ => this.fetchISS());
   };
 
-  fetchISSCoordinates = () => {
+  fetchISS = () => {
     axios
-      .get('https://issdb.herokuapp.com/getiss')
-      .then(response => {
+      .get('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json')
+      .then(response =>
         this.setState({
           ISSlat: response.data.iss_position.latitude,
           ISSlong: response.data.iss_position.longitude
-        });
-      })
-      .then(_ => this.getUserCoordinates());
+        })
+      )
+      .then(_ => {
+        this.fetchCityCountry();
+      });
   };
 
-  getUserCoordinates = () => {
+  fetchCityCountry = () => {
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${
@@ -121,15 +122,15 @@ class ShowLocation extends Component {
         Math.sin(dLong / 2);
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     var d = R * c;
-    console.log(Math.round(d));
     this.setState({
       distanceBetween: Math.round(d)
     });
+    console.log('new distance calculated')
   };
 
   deleteLocation = () => {
     axios
-      .delete(url + 'locations/' + this.props.match.params.locationid, {
+      .delete('https://issdb.herokuapp.com/locations/' + this.props.match.params.locationid, {
         headers: {
           Authorization: localStorage.token
         }
@@ -213,7 +214,7 @@ class ShowLocation extends Component {
           <button className="zoom-out-button" onClick={this.zoomOut}>
             ZOOM -
           </button>
-          <button className="refresh-button" onClick={this.fetchISSCoordinates}>
+          <button className="refresh-button" onClick={this.fetchISS}>
             REFRESH
           </button>
           <button className="satellite-button" onClick={this.mapSatellite}>

@@ -14,7 +14,6 @@ import EditUser from '../Userpage/EditUser/EditUser';
 import NewLocation from '../Userpage/NewLocation/NewLocation';
 import EditLocation from '../Userpage/EditLocation/EditLocation';
 import ShowLocation from '../Userpage/ShowLocation/ShowLocation';
-import url from '../url.js';
 
 class App extends Component {
   constructor() {
@@ -100,7 +99,7 @@ class App extends Component {
   handleSignUp = () => {
     //axios posts the new user to our backend using the UserInput paremeter
     axios
-      .post(url + 'users/signup', {
+      .post('https://issdb.herokuapp.com/users/signup', {
         username: this.state.username,
         password: this.state.password
       })
@@ -119,7 +118,7 @@ class App extends Component {
 
   handleLogin = e => {
     axios
-      .post(url + 'users/login', {
+      .post('https://issdb.herokuapp.com/users/login', {
         username: this.state.username,
         password: this.state.password
       })
@@ -159,7 +158,7 @@ class App extends Component {
     if (localStorage.token) {
       id = jwtDecode(localStorage.token).id;
       axios
-        .get(url + 'users' + id, {
+        .get('https://issdb.herokuapp.com/users/' + id, {
           headers: {
             Authorization: localStorage.token
           }
@@ -170,7 +169,7 @@ class App extends Component {
           });
         });
     } else {
-      console.log("you're not logged in");
+      // console.log("you're not logged in");
     }
   };
 
