@@ -80,3 +80,29 @@ footer .x {
   background: white;
   color: #202124;
 }
+
+@media screen and (max-width: 420px) {
+  .nasa img {
+    width: 60px;
+    height: 30px;
+  }
+
+  .x {
+    font-size: 12.5px;
+  }
+
+  .footer-right {
+    margin-right: -15px;
+  }
+  .git-link {
+    font-size: 14.5px;
+  }
+
+  footer li {
+    padding: 7px;
+  }
+
+  footer .git-logo {
+    height: 18px;
+  }
+}

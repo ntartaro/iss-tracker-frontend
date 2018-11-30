@@ -27,7 +27,7 @@ class Footer extends Component {
             />
           </a>
         </div>
-        <div>
+        <div className='footer-right'>
           <ul>
             <div className="x">
               <p>created by: </p>
