@@ -175,6 +175,8 @@ class App extends Component {
   };
 
   render() {
+    console.log('hey luis')
+    console.log(window.location.host)
     return (
       <div>
         <main>
